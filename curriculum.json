@@ -1,0 +1,1712 @@
+﻿{
+    "subjects":  [
+                     {
+                         "title":  "Networking",
+                         "number":  1,
+                         "chapters":  [
+                                          {
+                                              "title":  "What is a Network",
+                                              "parts":  [
+                                                            {
+                                                                "subtitle":  "Foundations",
+                                                                "num":  1,
+                                                                "file":  "content/01-networking/01-what-is-a-network/01-what-is-a-network.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "Real World and Interview Prep",
+                                                                "num":  2,
+                                                                "file":  "content/01-networking/01-what-is-a-network/02-what-is-a-network.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "AWS Focus and Quick Revision",
+                                                                "num":  3,
+                                                                "file":  "content/01-networking/01-what-is-a-network/03-what-is-a-network.md"
+                                                            }
+                                                        ],
+                                              "id":  "01-what-is-a-network",
+                                              "number":  1
+                                          },
+                                          {
+                                              "title":  "LAN vs WAN vs Internet",
+                                              "parts":  [
+                                                            {
+                                                                "subtitle":  "Foundations",
+                                                                "num":  1,
+                                                                "file":  "content/01-networking/02-lan-vs-wan-vs-internet/01-lan-vs-wan-vs-internet.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "Real World and Interview Prep",
+                                                                "num":  2,
+                                                                "file":  "content/01-networking/02-lan-vs-wan-vs-internet/02-lan-vs-wan-vs-internet.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "AWS Focus and Quick Revision",
+                                                                "num":  3,
+                                                                "file":  "content/01-networking/02-lan-vs-wan-vs-internet/03-lan-vs-wan-vs-internet.md"
+                                                            }
+                                                        ],
+                                              "id":  "02-lan-vs-wan-vs-internet",
+                                              "number":  2
+                                          },
+                                          {
+                                              "title":  "Public IP vs Private IP",
+                                              "parts":  [
+                                                            {
+                                                                "subtitle":  "Foundations",
+                                                                "num":  1,
+                                                                "file":  "content/01-networking/03-public-ip-vs-private-ip/01-public-ip-vs-private-ip.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "Real World and Interview Prep",
+                                                                "num":  2,
+                                                                "file":  "content/01-networking/03-public-ip-vs-private-ip/02-public-ip-vs-private-ip.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "AWS Focus and Quick Revision",
+                                                                "num":  3,
+                                                                "file":  "content/01-networking/03-public-ip-vs-private-ip/03-public-ip-vs-private-ip.md"
+                                                            }
+                                                        ],
+                                              "id":  "03-public-ip-vs-private-ip",
+                                              "number":  3
+                                          },
+                                          {
+                                              "title":  "IP Address Structure (IPv4 concept)",
+                                              "parts":  [
+                                                            {
+                                                                "subtitle":  "Foundations",
+                                                                "num":  1,
+                                                                "file":  "content/01-networking/04-ip-address-structure-ipv4-concept/01-ip-address-structure-ipv4-concept.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "Real World and Interview Prep",
+                                                                "num":  2,
+                                                                "file":  "content/01-networking/04-ip-address-structure-ipv4-concept/02-ip-address-structure-ipv4-concept.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "AWS Focus and Quick Revision",
+                                                                "num":  3,
+                                                                "file":  "content/01-networking/04-ip-address-structure-ipv4-concept/03-ip-address-structure-ipv4-concept.md"
+                                                            }
+                                                        ],
+                                              "id":  "04-ip-address-structure-ipv4-concept",
+                                              "number":  4
+                                          },
+                                          {
+                                              "title":  "Ports \u0026 Sockets",
+                                              "parts":  [
+                                                            {
+                                                                "subtitle":  "Foundations",
+                                                                "num":  1,
+                                                                "file":  "content/01-networking/05-ports-sockets/01-ports-sockets.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "Real World and Interview Prep",
+                                                                "num":  2,
+                                                                "file":  "content/01-networking/05-ports-sockets/02-ports-sockets.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "AWS Focus and Quick Revision",
+                                                                "num":  3,
+                                                                "file":  "content/01-networking/05-ports-sockets/03-ports-sockets.md"
+                                                            }
+                                                        ],
+                                              "id":  "05-ports-sockets",
+                                              "number":  5
+                                          },
+                                          {
+                                              "title":  "Router vs Switch",
+                                              "parts":  [
+                                                            {
+                                                                "subtitle":  "Foundations",
+                                                                "num":  1,
+                                                                "file":  "content/01-networking/06-router-vs-switch/01-router-vs-switch.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "Real World and Interview Prep",
+                                                                "num":  2,
+                                                                "file":  "content/01-networking/06-router-vs-switch/02-router-vs-switch.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "AWS Focus and Quick Revision",
+                                                                "num":  3,
+                                                                "file":  "content/01-networking/06-router-vs-switch/03-router-vs-switch.md"
+                                                            }
+                                                        ],
+                                              "id":  "06-router-vs-switch",
+                                              "number":  6
+                                          },
+                                          {
+                                              "title":  "Packet \u0026 Packet Switching",
+                                              "parts":  [
+                                                            {
+                                                                "subtitle":  "Foundations",
+                                                                "num":  1,
+                                                                "file":  "content/01-networking/07-packet-packet-switching/01-packet-packet-switching.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "Real World and Interview Prep",
+                                                                "num":  2,
+                                                                "file":  "content/01-networking/07-packet-packet-switching/02-packet-packet-switching.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "AWS Focus and Quick Revision",
+                                                                "num":  3,
+                                                                "file":  "content/01-networking/07-packet-packet-switching/03-packet-packet-switching.md"
+                                                            }
+                                                        ],
+                                              "id":  "07-packet-packet-switching",
+                                              "number":  7
+                                          },
+                                          {
+                                              "title":  "DNS — what it is",
+                                              "parts":  [
+                                                            {
+                                                                "subtitle":  "Foundations",
+                                                                "num":  1,
+                                                                "file":  "content/01-networking/08-dns-what-it-is/01-dns-what-it-is.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "Real World and Interview Prep",
+                                                                "num":  2,
+                                                                "file":  "content/01-networking/08-dns-what-it-is/02-dns-what-it-is.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "AWS Focus and Quick Revision",
+                                                                "num":  3,
+                                                                "file":  "content/01-networking/08-dns-what-it-is/03-dns-what-it-is.md"
+                                                            }
+                                                        ],
+                                              "id":  "08-dns-what-it-is",
+                                              "number":  8
+                                          },
+                                          {
+                                              "title":  "DNS Resolution Flow (step by step)",
+                                              "parts":  [
+                                                            {
+                                                                "subtitle":  "Foundations",
+                                                                "num":  1,
+                                                                "file":  "content/01-networking/09-dns-resolution-flow-step-by-step/01-dns-resolution-flow-step-by-step.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "Real World and Interview Prep",
+                                                                "num":  2,
+                                                                "file":  "content/01-networking/09-dns-resolution-flow-step-by-step/02-dns-resolution-flow-step-by-step.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "AWS Focus and Quick Revision",
+                                                                "num":  3,
+                                                                "file":  "content/01-networking/09-dns-resolution-flow-step-by-step/03-dns-resolution-flow-step-by-step.md"
+                                                            }
+                                                        ],
+                                              "id":  "09-dns-resolution-flow-step-by-step",
+                                              "number":  9
+                                          },
+                                          {
+                                              "title":  "Domain Name vs IP Address",
+                                              "parts":  [
+                                                            {
+                                                                "subtitle":  "Foundations",
+                                                                "num":  1,
+                                                                "file":  "content/01-networking/10-domain-name-vs-ip-address/01-domain-name-vs-ip-address.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "Real World and Interview Prep",
+                                                                "num":  2,
+                                                                "file":  "content/01-networking/10-domain-name-vs-ip-address/02-domain-name-vs-ip-address.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "AWS Focus and Quick Revision",
+                                                                "num":  3,
+                                                                "file":  "content/01-networking/10-domain-name-vs-ip-address/03-domain-name-vs-ip-address.md"
+                                                            }
+                                                        ],
+                                              "id":  "10-domain-name-vs-ip-address",
+                                              "number":  10
+                                          },
+                                          {
+                                              "title":  "TCP vs UDP",
+                                              "parts":  [
+                                                            {
+                                                                "subtitle":  "Foundations",
+                                                                "num":  1,
+                                                                "file":  "content/01-networking/11-tcp-vs-udp/01-tcp-vs-udp.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "Real World and Interview Prep",
+                                                                "num":  2,
+                                                                "file":  "content/01-networking/11-tcp-vs-udp/02-tcp-vs-udp.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "AWS Focus and Quick Revision",
+                                                                "num":  3,
+                                                                "file":  "content/01-networking/11-tcp-vs-udp/03-tcp-vs-udp.md"
+                                                            }
+                                                        ],
+                                              "id":  "11-tcp-vs-udp",
+                                              "number":  11
+                                          },
+                                          {
+                                              "title":  "TCP 3-Way Handshake",
+                                              "parts":  [
+                                                            {
+                                                                "subtitle":  "Foundations",
+                                                                "num":  1,
+                                                                "file":  "content/01-networking/12-tcp-3-way-handshake/01-tcp-3-way-handshake.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "Real World and Interview Prep",
+                                                                "num":  2,
+                                                                "file":  "content/01-networking/12-tcp-3-way-handshake/02-tcp-3-way-handshake.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "AWS Focus and Quick Revision",
+                                                                "num":  3,
+                                                                "file":  "content/01-networking/12-tcp-3-way-handshake/03-tcp-3-way-handshake.md"
+                                                            }
+                                                        ],
+                                              "id":  "12-tcp-3-way-handshake",
+                                              "number":  12
+                                          },
+                                          {
+                                              "title":  "TCP Reliability (ack, retransmission)",
+                                              "parts":  [
+                                                            {
+                                                                "subtitle":  "Foundations",
+                                                                "num":  1,
+                                                                "file":  "content/01-networking/13-tcp-reliability-ack-retransmission/01-tcp-reliability-ack-retransmission.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "Real World and Interview Prep",
+                                                                "num":  2,
+                                                                "file":  "content/01-networking/13-tcp-reliability-ack-retransmission/02-tcp-reliability-ack-retransmission.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "AWS Focus and Quick Revision",
+                                                                "num":  3,
+                                                                "file":  "content/01-networking/13-tcp-reliability-ack-retransmission/03-tcp-reliability-ack-retransmission.md"
+                                                            }
+                                                        ],
+                                              "id":  "13-tcp-reliability-ack-retransmission",
+                                              "number":  13
+                                          },
+                                          {
+                                              "title":  "HTTP Protocol (request-response)",
+                                              "parts":  [
+                                                            {
+                                                                "subtitle":  "Foundations",
+                                                                "num":  1,
+                                                                "file":  "content/01-networking/14-http-protocol-request-response/01-http-protocol-request-response.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "Real World and Interview Prep",
+                                                                "num":  2,
+                                                                "file":  "content/01-networking/14-http-protocol-request-response/02-http-protocol-request-response.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "AWS Focus and Quick Revision",
+                                                                "num":  3,
+                                                                "file":  "content/01-networking/14-http-protocol-request-response/03-http-protocol-request-response.md"
+                                                            }
+                                                        ],
+                                              "id":  "14-http-protocol-request-response",
+                                              "number":  14
+                                          },
+                                          {
+                                              "title":  "HTTP Methods",
+                                              "parts":  [
+                                                            {
+                                                                "subtitle":  "Foundations",
+                                                                "num":  1,
+                                                                "file":  "content/01-networking/15-http-methods/01-http-methods.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "Real World and Interview Prep",
+                                                                "num":  2,
+                                                                "file":  "content/01-networking/15-http-methods/02-http-methods.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "AWS Focus and Quick Revision",
+                                                                "num":  3,
+                                                                "file":  "content/01-networking/15-http-methods/03-http-methods.md"
+                                                            }
+                                                        ],
+                                              "id":  "15-http-methods",
+                                              "number":  15
+                                          },
+                                          {
+                                              "title":  "HTTP Status Codes",
+                                              "parts":  [
+                                                            {
+                                                                "subtitle":  "Foundations",
+                                                                "num":  1,
+                                                                "file":  "content/01-networking/16-http-status-codes/01-http-status-codes.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "Real World and Interview Prep",
+                                                                "num":  2,
+                                                                "file":  "content/01-networking/16-http-status-codes/02-http-status-codes.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "AWS Focus and Quick Revision",
+                                                                "num":  3,
+                                                                "file":  "content/01-networking/16-http-status-codes/03-http-status-codes.md"
+                                                            }
+                                                        ],
+                                              "id":  "16-http-status-codes",
+                                              "number":  16
+                                          },
+                                          {
+                                              "title":  "HTTP Headers",
+                                              "parts":  [
+                                                            {
+                                                                "subtitle":  "Foundations",
+                                                                "num":  1,
+                                                                "file":  "content/01-networking/17-http-headers/01-http-headers.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "Real World and Interview Prep",
+                                                                "num":  2,
+                                                                "file":  "content/01-networking/17-http-headers/02-http-headers.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "AWS Focus and Quick Revision",
+                                                                "num":  3,
+                                                                "file":  "content/01-networking/17-http-headers/03-http-headers.md"
+                                                            }
+                                                        ],
+                                              "id":  "17-http-headers",
+                                              "number":  17
+                                          },
+                                          {
+                                              "title":  "Cookies vs Sessions",
+                                              "parts":  [
+                                                            {
+                                                                "subtitle":  "Foundations",
+                                                                "num":  1,
+                                                                "file":  "content/01-networking/18-cookies-vs-sessions/01-cookies-vs-sessions.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "Real World and Interview Prep",
+                                                                "num":  2,
+                                                                "file":  "content/01-networking/18-cookies-vs-sessions/02-cookies-vs-sessions.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "AWS Focus and Quick Revision",
+                                                                "num":  3,
+                                                                "file":  "content/01-networking/18-cookies-vs-sessions/03-cookies-vs-sessions.md"
+                                                            }
+                                                        ],
+                                              "id":  "18-cookies-vs-sessions",
+                                              "number":  18
+                                          },
+                                          {
+                                              "title":  "HTTPS vs HTTP",
+                                              "parts":  [
+                                                            {
+                                                                "subtitle":  "Foundations",
+                                                                "num":  1,
+                                                                "file":  "content/01-networking/19-https-vs-http/01-https-vs-http.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "Real World and Interview Prep",
+                                                                "num":  2,
+                                                                "file":  "content/01-networking/19-https-vs-http/02-https-vs-http.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "AWS Focus and Quick Revision",
+                                                                "num":  3,
+                                                                "file":  "content/01-networking/19-https-vs-http/03-https-vs-http.md"
+                                                            }
+                                                        ],
+                                              "id":  "19-https-vs-http",
+                                              "number":  19
+                                          },
+                                          {
+                                              "title":  "SSL TLS Handshake",
+                                              "parts":  [
+                                                            {
+                                                                "subtitle":  "Foundations",
+                                                                "num":  1,
+                                                                "file":  "content/01-networking/20-ssl-tls-handshake/01-ssl-tls-handshake.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "Real World and Interview Prep",
+                                                                "num":  2,
+                                                                "file":  "content/01-networking/20-ssl-tls-handshake/02-ssl-tls-handshake.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "AWS Focus and Quick Revision",
+                                                                "num":  3,
+                                                                "file":  "content/01-networking/20-ssl-tls-handshake/03-ssl-tls-handshake.md"
+                                                            }
+                                                        ],
+                                              "id":  "20-ssl-tls-handshake",
+                                              "number":  20
+                                          },
+                                          {
+                                              "title":  "CORS",
+                                              "parts":  [
+                                                            {
+                                                                "subtitle":  "Foundations",
+                                                                "num":  1,
+                                                                "file":  "content/01-networking/21-cors/01-cors.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "Real World and Interview Prep",
+                                                                "num":  2,
+                                                                "file":  "content/01-networking/21-cors/02-cors.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "AWS Focus and Quick Revision",
+                                                                "num":  3,
+                                                                "file":  "content/01-networking/21-cors/03-cors.md"
+                                                            }
+                                                        ],
+                                              "id":  "21-cors",
+                                              "number":  21
+                                          },
+                                          {
+                                              "title":  "Request-Response Lifecycle",
+                                              "parts":  [
+                                                            {
+                                                                "subtitle":  "Foundations",
+                                                                "num":  1,
+                                                                "file":  "content/01-networking/22-request-response-lifecycle/01-request-response-lifecycle.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "Real World and Interview Prep",
+                                                                "num":  2,
+                                                                "file":  "content/01-networking/22-request-response-lifecycle/02-request-response-lifecycle.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "AWS Focus and Quick Revision",
+                                                                "num":  3,
+                                                                "file":  "content/01-networking/22-request-response-lifecycle/03-request-response-lifecycle.md"
+                                                            }
+                                                        ],
+                                              "id":  "22-request-response-lifecycle",
+                                              "number":  22
+                                          },
+                                          {
+                                              "title":  "Latency vs Bandwidth vs Throughput",
+                                              "parts":  [
+                                                            {
+                                                                "subtitle":  "Foundations",
+                                                                "num":  1,
+                                                                "file":  "content/01-networking/23-latency-vs-bandwidth-vs-throughput/01-latency-vs-bandwidth-vs-throughput.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "Real World and Interview Prep",
+                                                                "num":  2,
+                                                                "file":  "content/01-networking/23-latency-vs-bandwidth-vs-throughput/02-latency-vs-bandwidth-vs-throughput.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "AWS Focus and Quick Revision",
+                                                                "num":  3,
+                                                                "file":  "content/01-networking/23-latency-vs-bandwidth-vs-throughput/03-latency-vs-bandwidth-vs-throughput.md"
+                                                            }
+                                                        ],
+                                              "id":  "23-latency-vs-bandwidth-vs-throughput",
+                                              "number":  23
+                                          },
+                                          {
+                                              "title":  "Round Trip Time (RTT)",
+                                              "parts":  [
+                                                            {
+                                                                "subtitle":  "Foundations",
+                                                                "num":  1,
+                                                                "file":  "content/01-networking/24-round-trip-time-rtt/01-round-trip-time-rtt.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "Real World and Interview Prep",
+                                                                "num":  2,
+                                                                "file":  "content/01-networking/24-round-trip-time-rtt/02-round-trip-time-rtt.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "AWS Focus and Quick Revision",
+                                                                "num":  3,
+                                                                "file":  "content/01-networking/24-round-trip-time-rtt/03-round-trip-time-rtt.md"
+                                                            }
+                                                        ],
+                                              "id":  "24-round-trip-time-rtt",
+                                              "number":  24
+                                          },
+                                          {
+                                              "title":  "Content Delivery Network (CDN)",
+                                              "parts":  [
+                                                            {
+                                                                "subtitle":  "Foundations",
+                                                                "num":  1,
+                                                                "file":  "content/01-networking/25-content-delivery-network-cdn/01-content-delivery-network-cdn.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "Real World and Interview Prep",
+                                                                "num":  2,
+                                                                "file":  "content/01-networking/25-content-delivery-network-cdn/02-content-delivery-network-cdn.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "AWS Focus and Quick Revision",
+                                                                "num":  3,
+                                                                "file":  "content/01-networking/25-content-delivery-network-cdn/03-content-delivery-network-cdn.md"
+                                                            }
+                                                        ],
+                                              "id":  "25-content-delivery-network-cdn",
+                                              "number":  25
+                                          },
+                                          {
+                                              "title":  "How Web Works",
+                                              "parts":  [
+                                                            {
+                                                                "subtitle":  "Foundations",
+                                                                "num":  1,
+                                                                "file":  "content/01-networking/26-how-web-works/01-how-web-works.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "Real World and Interview Prep",
+                                                                "num":  2,
+                                                                "file":  "content/01-networking/26-how-web-works/02-how-web-works.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "AWS Focus and Quick Revision",
+                                                                "num":  3,
+                                                                "file":  "content/01-networking/26-how-web-works/03-how-web-works.md"
+                                                            }
+                                                        ],
+                                              "id":  "26-how-web-works",
+                                              "number":  26
+                                          }
+                                      ],
+                         "id":  "01-networking",
+                         "icon":  "network"
+                     },
+                     {
+                         "title":  "Backend and API Design",
+                         "number":  2,
+                         "chapters":  [
+                                          {
+                                              "title":  "REST Architecture",
+                                              "parts":  [
+                                                            {
+                                                                "subtitle":  "Foundations",
+                                                                "num":  1,
+                                                                "file":  "content/02-backend-api-design/01-rest-architecture/01-rest-architecture.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "Real World and Interview Prep",
+                                                                "num":  2,
+                                                                "file":  "content/02-backend-api-design/01-rest-architecture/02-rest-architecture.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "AWS Focus and Quick Revision",
+                                                                "num":  3,
+                                                                "file":  "content/02-backend-api-design/01-rest-architecture/03-rest-architecture.md"
+                                                            }
+                                                        ],
+                                              "id":  "01-rest-architecture",
+                                              "number":  1
+                                          },
+                                          {
+                                              "title":  "Resource Naming",
+                                              "parts":  [
+                                                            {
+                                                                "subtitle":  "Foundations",
+                                                                "num":  1,
+                                                                "file":  "content/02-backend-api-design/02-resource-naming/01-resource-naming.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "Real World and Interview Prep",
+                                                                "num":  2,
+                                                                "file":  "content/02-backend-api-design/02-resource-naming/02-resource-naming.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "AWS Focus and Quick Revision",
+                                                                "num":  3,
+                                                                "file":  "content/02-backend-api-design/02-resource-naming/03-resource-naming.md"
+                                                            }
+                                                        ],
+                                              "id":  "02-resource-naming",
+                                              "number":  2
+                                          },
+                                          {
+                                              "title":  "Path vs Query Parameters",
+                                              "parts":  [
+                                                            {
+                                                                "subtitle":  "Foundations",
+                                                                "num":  1,
+                                                                "file":  "content/02-backend-api-design/03-path-vs-query-parameters/01-path-vs-query-parameters.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "Real World and Interview Prep",
+                                                                "num":  2,
+                                                                "file":  "content/02-backend-api-design/03-path-vs-query-parameters/02-path-vs-query-parameters.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "AWS Focus and Quick Revision",
+                                                                "num":  3,
+                                                                "file":  "content/02-backend-api-design/03-path-vs-query-parameters/03-path-vs-query-parameters.md"
+                                                            }
+                                                        ],
+                                              "id":  "03-path-vs-query-parameters",
+                                              "number":  3
+                                          },
+                                          {
+                                              "title":  "Idempotent Operations",
+                                              "parts":  [
+                                                            {
+                                                                "subtitle":  "Foundations",
+                                                                "num":  1,
+                                                                "file":  "content/02-backend-api-design/04-idempotent-operations/01-idempotent-operations.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "Real World and Interview Prep",
+                                                                "num":  2,
+                                                                "file":  "content/02-backend-api-design/04-idempotent-operations/02-idempotent-operations.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "AWS Focus and Quick Revision",
+                                                                "num":  3,
+                                                                "file":  "content/02-backend-api-design/04-idempotent-operations/03-idempotent-operations.md"
+                                                            }
+                                                        ],
+                                              "id":  "04-idempotent-operations",
+                                              "number":  4
+                                          },
+                                          {
+                                              "title":  "Pagination (Offset vs Cursor)",
+                                              "parts":  [
+                                                            {
+                                                                "subtitle":  "Foundations",
+                                                                "num":  1,
+                                                                "file":  "content/02-backend-api-design/05-pagination-offset-vs-cursor/01-pagination-offset-vs-cursor.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "Real World and Interview Prep",
+                                                                "num":  2,
+                                                                "file":  "content/02-backend-api-design/05-pagination-offset-vs-cursor/02-pagination-offset-vs-cursor.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "AWS Focus and Quick Revision",
+                                                                "num":  3,
+                                                                "file":  "content/02-backend-api-design/05-pagination-offset-vs-cursor/03-pagination-offset-vs-cursor.md"
+                                                            }
+                                                        ],
+                                              "id":  "05-pagination-offset-vs-cursor",
+                                              "number":  5
+                                          },
+                                          {
+                                              "title":  "Filtering \u0026 Sorting",
+                                              "parts":  [
+                                                            {
+                                                                "subtitle":  "Foundations",
+                                                                "num":  1,
+                                                                "file":  "content/02-backend-api-design/06-filtering-sorting/01-filtering-sorting.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "Real World and Interview Prep",
+                                                                "num":  2,
+                                                                "file":  "content/02-backend-api-design/06-filtering-sorting/02-filtering-sorting.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "AWS Focus and Quick Revision",
+                                                                "num":  3,
+                                                                "file":  "content/02-backend-api-design/06-filtering-sorting/03-filtering-sorting.md"
+                                                            }
+                                                        ],
+                                              "id":  "06-filtering-sorting",
+                                              "number":  6
+                                          },
+                                          {
+                                              "title":  "API Versioning",
+                                              "parts":  [
+                                                            {
+                                                                "subtitle":  "Foundations",
+                                                                "num":  1,
+                                                                "file":  "content/02-backend-api-design/07-api-versioning/01-api-versioning.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "Real World and Interview Prep",
+                                                                "num":  2,
+                                                                "file":  "content/02-backend-api-design/07-api-versioning/02-api-versioning.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "AWS Focus and Quick Revision",
+                                                                "num":  3,
+                                                                "file":  "content/02-backend-api-design/07-api-versioning/03-api-versioning.md"
+                                                            }
+                                                        ],
+                                              "id":  "07-api-versioning",
+                                              "number":  7
+                                          },
+                                          {
+                                              "title":  "Standard Error Responses",
+                                              "parts":  [
+                                                            {
+                                                                "subtitle":  "Foundations",
+                                                                "num":  1,
+                                                                "file":  "content/02-backend-api-design/08-standard-error-responses/01-standard-error-responses.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "Real World and Interview Prep",
+                                                                "num":  2,
+                                                                "file":  "content/02-backend-api-design/08-standard-error-responses/02-standard-error-responses.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "AWS Focus and Quick Revision",
+                                                                "num":  3,
+                                                                "file":  "content/02-backend-api-design/08-standard-error-responses/03-standard-error-responses.md"
+                                                            }
+                                                        ],
+                                              "id":  "08-standard-error-responses",
+                                              "number":  8
+                                          },
+                                          {
+                                              "title":  "File Upload Flow",
+                                              "parts":  [
+                                                            {
+                                                                "subtitle":  "Foundations",
+                                                                "num":  1,
+                                                                "file":  "content/02-backend-api-design/09-file-upload-flow/01-file-upload-flow.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "Real World and Interview Prep",
+                                                                "num":  2,
+                                                                "file":  "content/02-backend-api-design/09-file-upload-flow/02-file-upload-flow.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "AWS Focus and Quick Revision",
+                                                                "num":  3,
+                                                                "file":  "content/02-backend-api-design/09-file-upload-flow/03-file-upload-flow.md"
+                                                            }
+                                                        ],
+                                              "id":  "09-file-upload-flow",
+                                              "number":  9
+                                          },
+                                          {
+                                              "title":  "Swagger OpenAPI Basics",
+                                              "parts":  [
+                                                            {
+                                                                "subtitle":  "Foundations",
+                                                                "num":  1,
+                                                                "file":  "content/02-backend-api-design/10-swagger-openapi-basics/01-swagger-openapi-basics.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "Real World and Interview Prep",
+                                                                "num":  2,
+                                                                "file":  "content/02-backend-api-design/10-swagger-openapi-basics/02-swagger-openapi-basics.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "AWS Focus and Quick Revision",
+                                                                "num":  3,
+                                                                "file":  "content/02-backend-api-design/10-swagger-openapi-basics/03-swagger-openapi-basics.md"
+                                                            }
+                                                        ],
+                                              "id":  "10-swagger-openapi-basics",
+                                              "number":  10
+                                          }
+                                      ],
+                         "id":  "02-backend-api-design",
+                         "icon":  "backend"
+                     },
+                     {
+                         "title":  "Authentication and Security",
+                         "number":  3,
+                         "chapters":  [
+                                          {
+                                              "title":  "Authentication vs Authorization",
+                                              "parts":  [
+                                                            {
+                                                                "subtitle":  "Foundations",
+                                                                "num":  1,
+                                                                "file":  "content/03-authentication-security/01-authentication-vs-authorization/01-authentication-vs-authorization.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "Real World and Interview Prep",
+                                                                "num":  2,
+                                                                "file":  "content/03-authentication-security/01-authentication-vs-authorization/02-authentication-vs-authorization.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "AWS Focus and Quick Revision",
+                                                                "num":  3,
+                                                                "file":  "content/03-authentication-security/01-authentication-vs-authorization/03-authentication-vs-authorization.md"
+                                                            }
+                                                        ],
+                                              "id":  "01-authentication-vs-authorization",
+                                              "number":  1
+                                          },
+                                          {
+                                              "title":  "Session Authentication",
+                                              "parts":  [
+                                                            {
+                                                                "subtitle":  "Foundations",
+                                                                "num":  1,
+                                                                "file":  "content/03-authentication-security/02-session-authentication/01-session-authentication.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "Real World and Interview Prep",
+                                                                "num":  2,
+                                                                "file":  "content/03-authentication-security/02-session-authentication/02-session-authentication.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "AWS Focus and Quick Revision",
+                                                                "num":  3,
+                                                                "file":  "content/03-authentication-security/02-session-authentication/03-session-authentication.md"
+                                                            }
+                                                        ],
+                                              "id":  "02-session-authentication",
+                                              "number":  2
+                                          },
+                                          {
+                                              "title":  "JWT Authentication",
+                                              "parts":  [
+                                                            {
+                                                                "subtitle":  "Foundations",
+                                                                "num":  1,
+                                                                "file":  "content/03-authentication-security/03-jwt-authentication/01-jwt-authentication.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "Real World and Interview Prep",
+                                                                "num":  2,
+                                                                "file":  "content/03-authentication-security/03-jwt-authentication/02-jwt-authentication.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "AWS Focus and Quick Revision",
+                                                                "num":  3,
+                                                                "file":  "content/03-authentication-security/03-jwt-authentication/03-jwt-authentication.md"
+                                                            }
+                                                        ],
+                                              "id":  "03-jwt-authentication",
+                                              "number":  3
+                                          },
+                                          {
+                                              "title":  "Access Token vs Refresh Token",
+                                              "parts":  [
+                                                            {
+                                                                "subtitle":  "Foundations",
+                                                                "num":  1,
+                                                                "file":  "content/03-authentication-security/04-access-token-vs-refresh-token/01-access-token-vs-refresh-token.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "Real World and Interview Prep",
+                                                                "num":  2,
+                                                                "file":  "content/03-authentication-security/04-access-token-vs-refresh-token/02-access-token-vs-refresh-token.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "AWS Focus and Quick Revision",
+                                                                "num":  3,
+                                                                "file":  "content/03-authentication-security/04-access-token-vs-refresh-token/03-access-token-vs-refresh-token.md"
+                                                            }
+                                                        ],
+                                              "id":  "04-access-token-vs-refresh-token",
+                                              "number":  4
+                                          },
+                                          {
+                                              "title":  "Password Hashing (bcrypt)",
+                                              "parts":  [
+                                                            {
+                                                                "subtitle":  "Foundations",
+                                                                "num":  1,
+                                                                "file":  "content/03-authentication-security/05-password-hashing-bcrypt/01-password-hashing-bcrypt.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "Real World and Interview Prep",
+                                                                "num":  2,
+                                                                "file":  "content/03-authentication-security/05-password-hashing-bcrypt/02-password-hashing-bcrypt.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "AWS Focus and Quick Revision",
+                                                                "num":  3,
+                                                                "file":  "content/03-authentication-security/05-password-hashing-bcrypt/03-password-hashing-bcrypt.md"
+                                                            }
+                                                        ],
+                                              "id":  "05-password-hashing-bcrypt",
+                                              "number":  5
+                                          },
+                                          {
+                                              "title":  "CSRF Attack",
+                                              "parts":  [
+                                                            {
+                                                                "subtitle":  "Foundations",
+                                                                "num":  1,
+                                                                "file":  "content/03-authentication-security/06-csrf-attack/01-csrf-attack.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "Real World and Interview Prep",
+                                                                "num":  2,
+                                                                "file":  "content/03-authentication-security/06-csrf-attack/02-csrf-attack.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "AWS Focus and Quick Revision",
+                                                                "num":  3,
+                                                                "file":  "content/03-authentication-security/06-csrf-attack/03-csrf-attack.md"
+                                                            }
+                                                        ],
+                                              "id":  "06-csrf-attack",
+                                              "number":  6
+                                          },
+                                          {
+                                              "title":  "XSS Attack",
+                                              "parts":  [
+                                                            {
+                                                                "subtitle":  "Foundations",
+                                                                "num":  1,
+                                                                "file":  "content/03-authentication-security/07-xss-attack/01-xss-attack.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "Real World and Interview Prep",
+                                                                "num":  2,
+                                                                "file":  "content/03-authentication-security/07-xss-attack/02-xss-attack.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "AWS Focus and Quick Revision",
+                                                                "num":  3,
+                                                                "file":  "content/03-authentication-security/07-xss-attack/03-xss-attack.md"
+                                                            }
+                                                        ],
+                                              "id":  "07-xss-attack",
+                                              "number":  7
+                                          },
+                                          {
+                                              "title":  "Input Validation",
+                                              "parts":  [
+                                                            {
+                                                                "subtitle":  "Real World and Interview Prep",
+                                                                "num":  2,
+                                                                "file":  "content/03-authentication-security/08-input-validation/02-input-validation.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "AWS Focus and Quick Revision",
+                                                                "num":  3,
+                                                                "file":  "content/03-authentication-security/08-input-validation/03-input-validation.md"
+                                                            }
+                                                        ],
+                                              "id":  "08-input-validation",
+                                              "number":  8
+                                          },
+                                          {
+                                              "title":  "Login Rate Limiting",
+                                              "parts":  [
+                                                            {
+                                                                "subtitle":  "Foundations",
+                                                                "num":  1,
+                                                                "file":  "content/03-authentication-security/09-login-rate-limiting/01-login-rate-limiting.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "Real World and Interview Prep",
+                                                                "num":  2,
+                                                                "file":  "content/03-authentication-security/09-login-rate-limiting/02-login-rate-limiting.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "AWS Focus and Quick Revision",
+                                                                "num":  3,
+                                                                "file":  "content/03-authentication-security/09-login-rate-limiting/03-login-rate-limiting.md"
+                                                            }
+                                                        ],
+                                              "id":  "09-login-rate-limiting",
+                                              "number":  9
+                                          }
+                                      ],
+                         "id":  "03-authentication-security",
+                         "icon":  "security"
+                     },
+                     {
+                         "title":  "Databases and Data Modeling",
+                         "number":  4,
+                         "chapters":  [
+                                          {
+                                              "title":  "Database Basics (tables \u0026 schema)",
+                                              "parts":  [
+                                                            {
+                                                                "subtitle":  "Foundations",
+                                                                "num":  1,
+                                                                "file":  "content/04-databases-data-modeling/01-database-basics-tables-schema/01-database-basics-tables-schema.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "Real World and Interview Prep",
+                                                                "num":  2,
+                                                                "file":  "content/04-databases-data-modeling/01-database-basics-tables-schema/02-database-basics-tables-schema.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "AWS Focus and Quick Revision",
+                                                                "num":  3,
+                                                                "file":  "content/04-databases-data-modeling/01-database-basics-tables-schema/03-database-basics-tables-schema.md"
+                                                            }
+                                                        ],
+                                              "id":  "01-database-basics-tables-schema",
+                                              "number":  1
+                                          },
+                                          {
+                                              "title":  "SELECT \u0026 WHERE",
+                                              "parts":  [
+                                                            {
+                                                                "subtitle":  "Foundations",
+                                                                "num":  1,
+                                                                "file":  "content/04-databases-data-modeling/02-select-where/01-select-where.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "Real World and Interview Prep",
+                                                                "num":  2,
+                                                                "file":  "content/04-databases-data-modeling/02-select-where/02-select-where.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "AWS Focus and Quick Revision",
+                                                                "num":  3,
+                                                                "file":  "content/04-databases-data-modeling/02-select-where/03-select-where.md"
+                                                            }
+                                                        ],
+                                              "id":  "02-select-where",
+                                              "number":  2
+                                          },
+                                          {
+                                              "title":  "ORDER BY",
+                                              "parts":  [
+                                                            {
+                                                                "subtitle":  "Foundations",
+                                                                "num":  1,
+                                                                "file":  "content/04-databases-data-modeling/03-order-by/01-order-by.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "Real World and Interview Prep",
+                                                                "num":  2,
+                                                                "file":  "content/04-databases-data-modeling/03-order-by/02-order-by.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "AWS Focus and Quick Revision",
+                                                                "num":  3,
+                                                                "file":  "content/04-databases-data-modeling/03-order-by/03-order-by.md"
+                                                            }
+                                                        ],
+                                              "id":  "03-order-by",
+                                              "number":  3
+                                          },
+                                          {
+                                              "title":  "GROUP BY \u0026 HAVING",
+                                              "parts":  [
+                                                            {
+                                                                "subtitle":  "Foundations",
+                                                                "num":  1,
+                                                                "file":  "content/04-databases-data-modeling/04-group-by-having/01-group-by-having.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "Real World and Interview Prep",
+                                                                "num":  2,
+                                                                "file":  "content/04-databases-data-modeling/04-group-by-having/02-group-by-having.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "AWS Focus and Quick Revision",
+                                                                "num":  3,
+                                                                "file":  "content/04-databases-data-modeling/04-group-by-having/03-group-by-having.md"
+                                                            }
+                                                        ],
+                                              "id":  "04-group-by-having",
+                                              "number":  4
+                                          },
+                                          {
+                                              "title":  "Aggregations (COUNT, SUM, AVG)",
+                                              "parts":  [
+                                                            {
+                                                                "subtitle":  "Foundations",
+                                                                "num":  1,
+                                                                "file":  "content/04-databases-data-modeling/05-aggregations-count-sum-avg/01-aggregations-count-sum-avg.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "Real World and Interview Prep",
+                                                                "num":  2,
+                                                                "file":  "content/04-databases-data-modeling/05-aggregations-count-sum-avg/02-aggregations-count-sum-avg.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "AWS Focus and Quick Revision",
+                                                                "num":  3,
+                                                                "file":  "content/04-databases-data-modeling/05-aggregations-count-sum-avg/03-aggregations-count-sum-avg.md"
+                                                            }
+                                                        ],
+                                              "id":  "05-aggregations-count-sum-avg",
+                                              "number":  5
+                                          },
+                                          {
+                                              "title":  "Primary Key",
+                                              "parts":  [
+                                                            {
+                                                                "subtitle":  "Foundations",
+                                                                "num":  1,
+                                                                "file":  "content/04-databases-data-modeling/06-primary-key/01-primary-key.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "Real World and Interview Prep",
+                                                                "num":  2,
+                                                                "file":  "content/04-databases-data-modeling/06-primary-key/02-primary-key.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "AWS Focus and Quick Revision",
+                                                                "num":  3,
+                                                                "file":  "content/04-databases-data-modeling/06-primary-key/03-primary-key.md"
+                                                            }
+                                                        ],
+                                              "id":  "06-primary-key",
+                                              "number":  6
+                                          },
+                                          {
+                                              "title":  "Foreign Key",
+                                              "parts":  [
+                                                            {
+                                                                "subtitle":  "Foundations",
+                                                                "num":  1,
+                                                                "file":  "content/04-databases-data-modeling/07-foreign-key/01-foreign-key.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "Real World and Interview Prep",
+                                                                "num":  2,
+                                                                "file":  "content/04-databases-data-modeling/07-foreign-key/02-foreign-key.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "AWS Focus and Quick Revision",
+                                                                "num":  3,
+                                                                "file":  "content/04-databases-data-modeling/07-foreign-key/03-foreign-key.md"
+                                                            }
+                                                        ],
+                                              "id":  "07-foreign-key",
+                                              "number":  7
+                                          },
+                                          {
+                                              "title":  "Joins (INNER, LEFT)",
+                                              "parts":  [
+                                                            {
+                                                                "subtitle":  "Foundations",
+                                                                "num":  1,
+                                                                "file":  "content/04-databases-data-modeling/08-joins-inner-left/01-joins-inner-left.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "Real World and Interview Prep",
+                                                                "num":  2,
+                                                                "file":  "content/04-databases-data-modeling/08-joins-inner-left/02-joins-inner-left.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "AWS Focus and Quick Revision",
+                                                                "num":  3,
+                                                                "file":  "content/04-databases-data-modeling/08-joins-inner-left/03-joins-inner-left.md"
+                                                            }
+                                                        ],
+                                              "id":  "08-joins-inner-left",
+                                              "number":  8
+                                          },
+                                          {
+                                              "title":  "Many-to-Many Relationships",
+                                              "parts":  [
+                                                            {
+                                                                "subtitle":  "Foundations",
+                                                                "num":  1,
+                                                                "file":  "content/04-databases-data-modeling/09-many-to-many-relationships/01-many-to-many-relationships.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "Real World and Interview Prep",
+                                                                "num":  2,
+                                                                "file":  "content/04-databases-data-modeling/09-many-to-many-relationships/02-many-to-many-relationships.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "AWS Focus and Quick Revision",
+                                                                "num":  3,
+                                                                "file":  "content/04-databases-data-modeling/09-many-to-many-relationships/03-many-to-many-relationships.md"
+                                                            }
+                                                        ],
+                                              "id":  "09-many-to-many-relationships",
+                                              "number":  9
+                                          },
+                                          {
+                                              "title":  "Constraints (NOT NULL, UNIQUE, DEFAULT)",
+                                              "parts":  [
+                                                            {
+                                                                "subtitle":  "Foundations",
+                                                                "num":  1,
+                                                                "file":  "content/04-databases-data-modeling/10-constraints-not-null-unique-default/01-constraints-not-null-unique-default.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "Real World and Interview Prep",
+                                                                "num":  2,
+                                                                "file":  "content/04-databases-data-modeling/10-constraints-not-null-unique-default/02-constraints-not-null-unique-default.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "AWS Focus and Quick Revision",
+                                                                "num":  3,
+                                                                "file":  "content/04-databases-data-modeling/10-constraints-not-null-unique-default/03-constraints-not-null-unique-default.md"
+                                                            }
+                                                        ],
+                                              "id":  "10-constraints-not-null-unique-default",
+                                              "number":  10
+                                          },
+                                          {
+                                              "title":  "Indexing — why queries slow",
+                                              "parts":  [
+                                                            {
+                                                                "subtitle":  "Foundations",
+                                                                "num":  1,
+                                                                "file":  "content/04-databases-data-modeling/11-indexing-why-queries-slow/01-indexing-why-queries-slow.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "Real World and Interview Prep",
+                                                                "num":  2,
+                                                                "file":  "content/04-databases-data-modeling/11-indexing-why-queries-slow/02-indexing-why-queries-slow.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "AWS Focus and Quick Revision",
+                                                                "num":  3,
+                                                                "file":  "content/04-databases-data-modeling/11-indexing-why-queries-slow/03-indexing-why-queries-slow.md"
+                                                            }
+                                                        ],
+                                              "id":  "11-indexing-why-queries-slow",
+                                              "number":  11
+                                          },
+                                          {
+                                              "title":  "B-Tree Index",
+                                              "parts":  [
+                                                            {
+                                                                "subtitle":  "Foundations",
+                                                                "num":  1,
+                                                                "file":  "content/04-databases-data-modeling/12-b-tree-index/01-b-tree-index.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "Real World and Interview Prep",
+                                                                "num":  2,
+                                                                "file":  "content/04-databases-data-modeling/12-b-tree-index/02-b-tree-index.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "AWS Focus and Quick Revision",
+                                                                "num":  3,
+                                                                "file":  "content/04-databases-data-modeling/12-b-tree-index/03-b-tree-index.md"
+                                                            }
+                                                        ],
+                                              "id":  "12-b-tree-index",
+                                              "number":  12
+                                          },
+                                          {
+                                              "title":  "Composite Index",
+                                              "parts":  [
+                                                            {
+                                                                "subtitle":  "Foundations",
+                                                                "num":  1,
+                                                                "file":  "content/04-databases-data-modeling/13-composite-index/01-composite-index.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "Real World and Interview Prep",
+                                                                "num":  2,
+                                                                "file":  "content/04-databases-data-modeling/13-composite-index/02-composite-index.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "AWS Focus and Quick Revision",
+                                                                "num":  3,
+                                                                "file":  "content/04-databases-data-modeling/13-composite-index/03-composite-index.md"
+                                                            }
+                                                        ],
+                                              "id":  "13-composite-index",
+                                              "number":  13
+                                          },
+                                          {
+                                              "title":  "When NOT to Index",
+                                              "parts":  [
+                                                            {
+                                                                "subtitle":  "Foundations",
+                                                                "num":  1,
+                                                                "file":  "content/04-databases-data-modeling/14-when-not-to-index/01-when-not-to-index.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "Real World and Interview Prep",
+                                                                "num":  2,
+                                                                "file":  "content/04-databases-data-modeling/14-when-not-to-index/02-when-not-to-index.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "AWS Focus and Quick Revision",
+                                                                "num":  3,
+                                                                "file":  "content/04-databases-data-modeling/14-when-not-to-index/03-when-not-to-index.md"
+                                                            }
+                                                        ],
+                                              "id":  "14-when-not-to-index",
+                                              "number":  14
+                                          },
+                                          {
+                                              "title":  "Transactions",
+                                              "parts":  [
+                                                            {
+                                                                "subtitle":  "Foundations",
+                                                                "num":  1,
+                                                                "file":  "content/04-databases-data-modeling/15-transactions/01-transactions.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "Real World and Interview Prep",
+                                                                "num":  2,
+                                                                "file":  "content/04-databases-data-modeling/15-transactions/02-transactions.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "AWS Focus and Quick Revision",
+                                                                "num":  3,
+                                                                "file":  "content/04-databases-data-modeling/15-transactions/03-transactions.md"
+                                                            }
+                                                        ],
+                                              "id":  "15-transactions",
+                                              "number":  15
+                                          },
+                                          {
+                                              "title":  "ACID Properties",
+                                              "parts":  [
+                                                            {
+                                                                "subtitle":  "Foundations",
+                                                                "num":  1,
+                                                                "file":  "content/04-databases-data-modeling/16-acid-properties/01-acid-properties.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "Real World and Interview Prep",
+                                                                "num":  2,
+                                                                "file":  "content/04-databases-data-modeling/16-acid-properties/02-acid-properties.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "AWS Focus and Quick Revision",
+                                                                "num":  3,
+                                                                "file":  "content/04-databases-data-modeling/16-acid-properties/03-acid-properties.md"
+                                                            }
+                                                        ],
+                                              "id":  "16-acid-properties",
+                                              "number":  16
+                                          },
+                                          {
+                                              "title":  "Race Conditions",
+                                              "parts":  [
+                                                            {
+                                                                "subtitle":  "Foundations",
+                                                                "num":  1,
+                                                                "file":  "content/04-databases-data-modeling/17-race-conditions/01-race-conditions.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "Real World and Interview Prep",
+                                                                "num":  2,
+                                                                "file":  "content/04-databases-data-modeling/17-race-conditions/02-race-conditions.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "AWS Focus and Quick Revision",
+                                                                "num":  3,
+                                                                "file":  "content/04-databases-data-modeling/17-race-conditions/03-race-conditions.md"
+                                                            }
+                                                        ],
+                                              "id":  "17-race-conditions",
+                                              "number":  17
+                                          },
+                                          {
+                                              "title":  "Prevent Duplicate Payments",
+                                              "parts":  [
+                                                            {
+                                                                "subtitle":  "Foundations",
+                                                                "num":  1,
+                                                                "file":  "content/04-databases-data-modeling/18-prevent-duplicate-payments/01-prevent-duplicate-payments.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "Real World and Interview Prep",
+                                                                "num":  2,
+                                                                "file":  "content/04-databases-data-modeling/18-prevent-duplicate-payments/02-prevent-duplicate-payments.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "AWS Focus and Quick Revision",
+                                                                "num":  3,
+                                                                "file":  "content/04-databases-data-modeling/18-prevent-duplicate-payments/03-prevent-duplicate-payments.md"
+                                                            }
+                                                        ],
+                                              "id":  "18-prevent-duplicate-payments",
+                                              "number":  18
+                                          },
+                                          {
+                                              "title":  "Normalization",
+                                              "parts":  [
+                                                            {
+                                                                "subtitle":  "Foundations",
+                                                                "num":  1,
+                                                                "file":  "content/04-databases-data-modeling/19-normalization/01-normalization.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "Real World and Interview Prep",
+                                                                "num":  2,
+                                                                "file":  "content/04-databases-data-modeling/19-normalization/02-normalization.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "AWS Focus and Quick Revision",
+                                                                "num":  3,
+                                                                "file":  "content/04-databases-data-modeling/19-normalization/03-normalization.md"
+                                                            }
+                                                        ],
+                                              "id":  "19-normalization",
+                                              "number":  19
+                                          },
+                                          {
+                                              "title":  "Denormalization",
+                                              "parts":  [
+                                                            {
+                                                                "subtitle":  "Foundations",
+                                                                "num":  1,
+                                                                "file":  "content/04-databases-data-modeling/20-denormalization/01-denormalization.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "Real World and Interview Prep",
+                                                                "num":  2,
+                                                                "file":  "content/04-databases-data-modeling/20-denormalization/02-denormalization.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "AWS Focus and Quick Revision",
+                                                                "num":  3,
+                                                                "file":  "content/04-databases-data-modeling/20-denormalization/03-denormalization.md"
+                                                            }
+                                                        ],
+                                              "id":  "20-denormalization",
+                                              "number":  20
+                                          },
+                                          {
+                                              "title":  "Soft Delete",
+                                              "parts":  [
+                                                            {
+                                                                "subtitle":  "Foundations",
+                                                                "num":  1,
+                                                                "file":  "content/04-databases-data-modeling/21-soft-delete/01-soft-delete.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "Real World and Interview Prep",
+                                                                "num":  2,
+                                                                "file":  "content/04-databases-data-modeling/21-soft-delete/02-soft-delete.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "AWS Focus and Quick Revision",
+                                                                "num":  3,
+                                                                "file":  "content/04-databases-data-modeling/21-soft-delete/03-soft-delete.md"
+                                                            }
+                                                        ],
+                                              "id":  "21-soft-delete",
+                                              "number":  21
+                                          },
+                                          {
+                                              "title":  "Audit Columns",
+                                              "parts":  [
+                                                            {
+                                                                "subtitle":  "Foundations",
+                                                                "num":  1,
+                                                                "file":  "content/04-databases-data-modeling/22-audit-columns/01-audit-columns.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "Real World and Interview Prep",
+                                                                "num":  2,
+                                                                "file":  "content/04-databases-data-modeling/22-audit-columns/02-audit-columns.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "AWS Focus and Quick Revision",
+                                                                "num":  3,
+                                                                "file":  "content/04-databases-data-modeling/22-audit-columns/03-audit-columns.md"
+                                                            }
+                                                        ],
+                                              "id":  "22-audit-columns",
+                                              "number":  22
+                                          },
+                                          {
+                                              "title":  "Multi-Tenant Data",
+                                              "parts":  [
+                                                            {
+                                                                "subtitle":  "Foundations",
+                                                                "num":  1,
+                                                                "file":  "content/04-databases-data-modeling/23-multi-tenant-data/01-multi-tenant-data.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "Real World and Interview Prep",
+                                                                "num":  2,
+                                                                "file":  "content/04-databases-data-modeling/23-multi-tenant-data/02-multi-tenant-data.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "AWS Focus and Quick Revision",
+                                                                "num":  3,
+                                                                "file":  "content/04-databases-data-modeling/23-multi-tenant-data/03-multi-tenant-data.md"
+                                                            }
+                                                        ],
+                                              "id":  "23-multi-tenant-data",
+                                              "number":  23
+                                          },
+                                          {
+                                              "title":  "N+1 Query Problem",
+                                              "parts":  [
+                                                            {
+                                                                "subtitle":  "Foundations",
+                                                                "num":  1,
+                                                                "file":  "content/04-databases-data-modeling/24-n-1-query-problem/01-n-1-query-problem.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "Real World and Interview Prep",
+                                                                "num":  2,
+                                                                "file":  "content/04-databases-data-modeling/24-n-1-query-problem/02-n-1-query-problem.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "AWS Focus and Quick Revision",
+                                                                "num":  3,
+                                                                "file":  "content/04-databases-data-modeling/24-n-1-query-problem/03-n-1-query-problem.md"
+                                                            }
+                                                        ],
+                                              "id":  "24-n-1-query-problem",
+                                              "number":  24
+                                          },
+                                          {
+                                              "title":  "EXPLAIN ANALYZE",
+                                              "parts":  [
+                                                            {
+                                                                "subtitle":  "Foundations",
+                                                                "num":  1,
+                                                                "file":  "content/04-databases-data-modeling/25-explain-analyze/01-explain-analyze.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "Real World and Interview Prep",
+                                                                "num":  2,
+                                                                "file":  "content/04-databases-data-modeling/25-explain-analyze/02-explain-analyze.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "AWS Focus and Quick Revision",
+                                                                "num":  3,
+                                                                "file":  "content/04-databases-data-modeling/25-explain-analyze/03-explain-analyze.md"
+                                                            }
+                                                        ],
+                                              "id":  "25-explain-analyze",
+                                              "number":  25
+                                          }
+                                      ],
+                         "id":  "04-databases-data-modeling",
+                         "icon":  "database"
+                     },
+                     {
+                         "title":  "System Design and Architecture",
+                         "number":  5,
+                         "chapters":  [
+                                          {
+                                              "title":  "Monolith vs Microservices",
+                                              "parts":  [
+                                                            {
+                                                                "subtitle":  "Foundations",
+                                                                "num":  1,
+                                                                "file":  "content/05-system-design-architecture/01-monolith-vs-microservices/01-monolith-vs-microservices.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "Real World and Interview Prep",
+                                                                "num":  2,
+                                                                "file":  "content/05-system-design-architecture/01-monolith-vs-microservices/02-monolith-vs-microservices.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "AWS Focus and Quick Revision",
+                                                                "num":  3,
+                                                                "file":  "content/05-system-design-architecture/01-monolith-vs-microservices/03-monolith-vs-microservices.md"
+                                                            }
+                                                        ],
+                                              "id":  "01-monolith-vs-microservices",
+                                              "number":  1
+                                          },
+                                          {
+                                              "title":  "Layered Architecture",
+                                              "parts":  [
+                                                            {
+                                                                "subtitle":  "Foundations",
+                                                                "num":  1,
+                                                                "file":  "content/05-system-design-architecture/02-layered-architecture/01-layered-architecture.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "Real World and Interview Prep",
+                                                                "num":  2,
+                                                                "file":  "content/05-system-design-architecture/02-layered-architecture/02-layered-architecture.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "AWS Focus and Quick Revision",
+                                                                "num":  3,
+                                                                "file":  "content/05-system-design-architecture/02-layered-architecture/03-layered-architecture.md"
+                                                            }
+                                                        ],
+                                              "id":  "02-layered-architecture",
+                                              "number":  2
+                                          },
+                                          {
+                                              "title":  "Controller-Service-Repository Pattern",
+                                              "parts":  [
+                                                            {
+                                                                "subtitle":  "Foundations",
+                                                                "num":  1,
+                                                                "file":  "content/05-system-design-architecture/03-controller-service-repository-pattern/01-controller-service-repository-pattern.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "Real World and Interview Prep",
+                                                                "num":  2,
+                                                                "file":  "content/05-system-design-architecture/03-controller-service-repository-pattern/02-controller-service-repository-pattern.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "AWS Focus and Quick Revision",
+                                                                "num":  3,
+                                                                "file":  "content/05-system-design-architecture/03-controller-service-repository-pattern/03-controller-service-repository-pattern.md"
+                                                            }
+                                                        ],
+                                              "id":  "03-controller-service-repository-pattern",
+                                              "number":  3
+                                          },
+                                          {
+                                              "title":  "Clean Architecture Basics",
+                                              "parts":  [
+                                                            {
+                                                                "subtitle":  "Foundations",
+                                                                "num":  1,
+                                                                "file":  "content/05-system-design-architecture/04-clean-architecture-basics/01-clean-architecture-basics.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "Real World and Interview Prep",
+                                                                "num":  2,
+                                                                "file":  "content/05-system-design-architecture/04-clean-architecture-basics/02-clean-architecture-basics.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "AWS Focus and Quick Revision",
+                                                                "num":  3,
+                                                                "file":  "content/05-system-design-architecture/04-clean-architecture-basics/03-clean-architecture-basics.md"
+                                                            }
+                                                        ],
+                                              "id":  "04-clean-architecture-basics",
+                                              "number":  4
+                                          },
+                                          {
+                                              "title":  "Backend-for-Frontend (BFF)",
+                                              "parts":  [
+                                                            {
+                                                                "subtitle":  "Foundations",
+                                                                "num":  1,
+                                                                "file":  "content/05-system-design-architecture/05-backend-for-frontend-bff/01-backend-for-frontend-bff.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "Real World and Interview Prep",
+                                                                "num":  2,
+                                                                "file":  "content/05-system-design-architecture/05-backend-for-frontend-bff/02-backend-for-frontend-bff.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "AWS Focus and Quick Revision",
+                                                                "num":  3,
+                                                                "file":  "content/05-system-design-architecture/05-backend-for-frontend-bff/03-backend-for-frontend-bff.md"
+                                                            }
+                                                        ],
+                                              "id":  "05-backend-for-frontend-bff",
+                                              "number":  5
+                                          },
+                                          {
+                                              "title":  "API Gateway",
+                                              "parts":  [
+                                                            {
+                                                                "subtitle":  "Foundations",
+                                                                "num":  1,
+                                                                "file":  "content/05-system-design-architecture/06-api-gateway/01-api-gateway.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "Real World and Interview Prep",
+                                                                "num":  2,
+                                                                "file":  "content/05-system-design-architecture/06-api-gateway/02-api-gateway.md"
+                                                            },
+                                                            {
+                                                                "subtitle":  "AWS Focus and Quick Revision",
+                                                                "num":  3,
+                                                                "file":  "content/05-system-design-architecture/06-api-gateway/03-api-gateway.md"
+                                                            }
+                                                        ],
+                                              "id":  "06-api-gateway",
+                                              "number":  6
+                                          }
+                                      ],
+                         "id":  "05-system-design-architecture",
+                         "icon":  "architecture"
+                     }
+                 ],
+    "title":  "Bikash Learning Portal"
+}

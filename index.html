@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bikash Learning Portal</title>
+    <meta
+      name="description"
+      content="Personal learning portal for system design, networking, databases, and more."
+    />
+
+    <!-- Prism.js for syntax highlighting -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"
+    />
+
+    <!-- Main stylesheet -->
+    <link rel="stylesheet" href="style.css" />
+    <!-- Anti-flash: apply saved theme before render -->
+    <script>
+      (function () {
+        var t = localStorage.getItem("lp_theme");
+        if (!t)
+          t = window.matchMedia("(prefers-color-scheme: light)").matches
+            ? "light"
+            : "dark";
+        document.documentElement.dataset.theme = t;
+      })();
+    </script>
+  </head>
+  <body>
+    <!-- ═══════════════════════════════════════  READING PROGRESS  -->
+    <div id="reading-progress" aria-hidden="true"></div>
+
+    <!-- ═══════════════════════════════════════  HEADER  -->
+    <header id="site-header">
+      <div class="header-left">
+        <button
+          id="sidebar-toggle"
+          class="icon-btn"
+          aria-label="Toggle sidebar"
+          title="Toggle Sidebar"
+        >
+          <span class="hamburger"></span>
+          <span class="hamburger"></span>
+          <span class="hamburger"></span>
+        </button>
+        <a href="#" class="site-logo" id="site-logo">
+          <span class="logo-icon">⚡</span>
+          <span class="logo-text">Bikash Learns</span>
+        </a>
+      </div>
+
+      <div class="header-center">
+        <nav class="breadcrumb" id="breadcrumb" aria-label="Breadcrumb">
+          <span class="breadcrumb-item" id="breadcrumb-subject"
+            >Learning Portal</span
+          >
+        </nav>
+      </div>
+
+      <div class="header-right">
+        <!-- Search trigger -->
+        <button
+          id="search-btn"
+          class="icon-btn"
+          aria-label="Open search"
+          title="Search (Ctrl+K)"
+        >
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <circle cx="11" cy="11" r="8" />
+            <path d="m21 21-4.35-4.35" />
+          </svg>
+        </button>
+
+        <!-- Theme toggle -->
+        <button
+          id="theme-toggle"
+          class="icon-btn"
+          aria-label="Toggle theme"
+          title="Toggle Dark/Light"
+        >
+          <svg
+            id="icon-moon"
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+          </svg>
+          <svg
+            id="icon-sun"
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            style="display: none"
+          >
+            <circle cx="12" cy="12" r="5" />
+            <line x1="12" y1="1" x2="12" y2="3" />
+            <line x1="12" y1="21" x2="12" y2="23" />
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+            <line x1="1" y1="12" x2="3" y2="12" />
+            <line x1="21" y1="12" x2="23" y2="12" />
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- ═══════════════════════════════════════  SEARCH OVERLAY  -->
+    <div
+      id="search-overlay"
+      class="hidden"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Search"
+    >
+      <div id="search-modal">
+        <div id="search-input-wrap">
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <circle cx="11" cy="11" r="8" />
+            <path d="m21 21-4.35-4.35" />
+          </svg>
+          <input
+            type="text"
+            id="search-input"
+            placeholder="Search lessons, topics, concepts..."
+            autocomplete="off"
+            spellcheck="false"
+          />
+          <kbd>Esc</kbd>
+        </div>
+        <div id="search-results" role="listbox"></div>
+        <div id="search-empty" class="hidden">
+          <p>No results found. Try a different search term.</p>
+        </div>
+        <div id="search-hint">
+          <span>Type to search across all lessons</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════  LAYOUT SHELL  -->
+    <div id="app-layout">
+      <!-- LEFT SIDEBAR -->
+      <aside id="sidebar" aria-label="Navigation">
+        <div id="sidebar-inner">
+          <nav id="sidebar-nav" aria-label="Course navigation"></nav>
+        </div>
+      </aside>
+
+      <!-- SIDEBAR OVERLAY (mobile) -->
+      <div id="sidebar-overlay"></div>
+
+      <!-- MAIN CONTENT -->
+      <main id="main-content">
+        <!-- Welcome screen -->
+        <div id="welcome-screen">
+          <div class="welcome-inner">
+            <div class="welcome-icon">⚡</div>
+            <h1>Bikash's Learning Portal</h1>
+            <p class="welcome-subtitle">
+              A structured learning path from Full-Stack Developer to Solutions
+              Architect
+            </p>
+            <div id="subject-cards" class="subject-grid"></div>
+          </div>
+        </div>
+
+        <!-- Lesson content area -->
+        <article id="lesson-container" class="hidden">
+          <div id="lesson-header">
+            <div id="lesson-meta">
+              <span id="lesson-subject-tag" class="subject-tag"></span>
+              <span id="lesson-part-tags" class="part-tags"></span>
+            </div>
+            <h1 id="lesson-title"></h1>
+            <p id="lesson-subtitle" class="lesson-subtitle"></p>
+          </div>
+          <div id="lesson-content" class="markdown-body"></div>
+          <div id="lesson-nav" class="lesson-nav">
+            <button
+              id="prev-lesson"
+              class="nav-btn nav-btn--prev"
+              aria-label="Previous lesson"
+            >
+              <span class="nav-arrow">&#8592;</span>
+              <span class="nav-label">
+                <small>Previous</small>
+                <strong id="prev-lesson-title">—</strong>
+              </span>
+            </button>
+            <button
+              id="next-lesson"
+              class="nav-btn nav-btn--next"
+              aria-label="Next lesson"
+            >
+              <span class="nav-label">
+                <small>Next</small>
+                <strong id="next-lesson-title">—</strong>
+              </span>
+              <span class="nav-arrow">&#8594;</span>
+            </button>
+          </div>
+        </article>
+
+        <!-- Loading spinner -->
+        <div id="loader" class="hidden" aria-label="Loading">
+          <div class="spinner"></div>
+          <p>Loading lesson...</p>
+        </div>
+
+        <!-- Error state -->
+        <div id="error-state" class="hidden">
+          <div class="error-icon">⚠️</div>
+          <h2>Failed to load lesson</h2>
+          <p id="error-message">The lesson file could not be fetched.</p>
+          <button id="error-retry" class="btn-primary">Retry</button>
+        </div>
+      </main>
+
+      <!-- RIGHT SIDEBAR - TABLE OF CONTENTS -->
+      <aside id="toc-sidebar" aria-label="Table of contents">
+        <div id="toc-inner">
+          <div id="toc-header">On this page</div>
+          <nav id="toc-nav" aria-label="Page outline"></nav>
+        </div>
+      </aside>
+    </div>
+    <!-- /#app-layout -->
+
+    <!-- SCROLL TO TOP -->
+    <button
+      id="scroll-top"
+      class="hidden"
+      aria-label="Scroll to top"
+      title="Back to top"
+    >
+      <svg
+        width="16"
+        height="16"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2.5"
+      >
+        <polyline points="18 15 12 9 6 15" />
+      </svg>
+    </button>
+
+    <!-- ═══════════════════════════════════════  SCRIPTS  -->
+    <!-- marked.js - Markdown parser -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/9.1.6/marked.min.js"></script>
+    <!-- Prism.js - Syntax highlighting -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <!-- App modules -->
+    <script src="theme.js"></script>
+    <script src="router.js"></script>
+    <script src="markdownLoader.js"></script>
+    <script src="toc.js"></script>
+    <script src="search.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
