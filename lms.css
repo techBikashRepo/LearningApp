@@ -134,7 +134,8 @@
 /* ── Dashboard Grid ───────────────────────────────────────── */
 .lms-dashboard-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  /* Desktop: 4 cards per row; collapses via media queries below */
+  grid-template-columns: repeat(4, 1fr);
   gap: 16px;
   margin-bottom: 28px;
 }
@@ -784,20 +785,34 @@
 }
 
 /* ── Responsive ───────────────────────────────────────────── */
-@media (max-width: 900px) {
+/* ─── lms.css responsive — aligned with 992/768/480 ─── */
+@media (max-width: 992px) {
   #lms-screen {
     padding: 20px 16px 60px;
   }
   .lms-dashboard-grid {
     grid-template-columns: repeat(3, 1fr);
   }
+  .lms-page-title {
+    font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+  }
 }
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   .lms-dashboard-grid {
     grid-template-columns: repeat(2, 1fr);
   }
   .lms-page-title {
     font-size: 1.2rem;
+  }
+  /* Heatmap scroll on tablet too */
+  .lms-heatmap-scroll {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  /* Note input: full width */
+  .lms-note-input {
+    width: 100%;
+    min-width: unset;
   }
 }
 @media (max-width: 480px) {
@@ -806,22 +821,21 @@
     gap: 8px;
   }
   .lms-stat-card {
-    padding: 14px 12px;
+    padding: 14px 10px;
   }
   .lms-stat-value {
-    font-size: 1.4rem !important;
+    font-size: 1.3rem !important;
   }
-  /* Heatmap: allow horizontal scroll */
-  .lms-heatmap-scroll {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-  }
-  /* Planner notes input: full width */
-  .lms-note-input {
-    width: 100%;
-    min-width: unset;
+  .lms-stat-label {
+    font-size: 0.7rem;
   }
   .lms-streak-value {
-    font-size: 1.6rem !important;
+    font-size: 1.5rem !important;
+  }
+  /* Planner table cell padding */
+  .lms-planner-table td,
+  .lms-planner-table th {
+    padding: 8px 8px;
+    font-size: 0.78rem;
   }
 }

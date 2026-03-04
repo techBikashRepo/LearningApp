@@ -3,12 +3,37 @@
    Extends style.css + lms.css with new shell & panel system
    ============================================================ */
 
+/* ── Design Tokens: Responsive Spacing System ─────────────── */
+:root {
+  /* Spacing scale */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+
+  /* Responsive panel padding — overridden per breakpoint */
+  --panel-px: clamp(12px, 3vw, 40px);
+  --panel-py: clamp(14px, 2.5vw, 32px);
+
+  /* Typography scale */
+  --text-display: clamp(1.4rem, 3.5vw, 2rem);
+  --text-heading: clamp(1.1rem, 2.5vw, 1.5rem);
+  --text-sub: clamp(0.75rem, 1.5vw, 0.88rem);
+
+  /* Nav sidebar width */
+  --nav-width: 224px;
+}
+
 /* ── Override: Body → Primary Nav + App Shell layout ──────── */
 body {
   display: flex;
   height: 100vh;
   height: 100dvh;
   overflow: hidden;
+  /* Belt-and-suspenders: prevent any child from pushing past viewport */
+  max-width: 100vw;
 }
 
 /* ── Primary Navigation Sidebar ───────────────────────────── */
@@ -172,11 +197,12 @@ body.nav-collapsed #primary-nav {
   height: 100vh;
   height: 100dvh;
   overflow-y: auto;
-  overflow-x: hidden;
+  overflow-x: hidden; /* clip any child that overflows horizontally */
   display: flex;
   flex-direction: column;
   background: var(--bg-base);
   -webkit-overflow-scrolling: touch;
+  max-width: 100%; /* never wider than viewport */
 }
 
 /* ── Override: Site Header → sticky inside app-shell ──────── */
@@ -193,6 +219,30 @@ body.nav-collapsed #primary-nav {
 /* Sidebar toggle only relevant in roadmap panel */
 #sidebar-toggle.pnav-hidden {
   display: none;
+}
+
+/* ── Hamburger icon — primary nav toggle ────────────────────── */
+#primary-nav-toggle {
+  flex-direction: column;
+  gap: 4.5px;
+  padding: 4px;
+}
+#primary-nav-toggle .hamburger {
+  transition:
+    transform 0.22s ease,
+    opacity 0.22s ease,
+    width 0.22s ease;
+}
+/* Animate to X when nav is open */
+#primary-nav.is-open ~ #app-shell #primary-nav-toggle .hamburger:nth-child(1) {
+  transform: translateY(6.5px) rotate(45deg);
+}
+#primary-nav.is-open ~ #app-shell #primary-nav-toggle .hamburger:nth-child(2) {
+  opacity: 0;
+  width: 0;
+}
+#primary-nav.is-open ~ #app-shell #primary-nav-toggle .hamburger:nth-child(3) {
+  transform: translateY(-6.5px) rotate(-45deg);
 }
 
 /* ── Panel System ───────────────────────────────────────────── */
@@ -232,7 +282,7 @@ body.nav-collapsed #primary-nav {
   flex-wrap: wrap;
 }
 .panel-title {
-  font-size: 1.5rem;
+  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
   font-weight: 700;
   color: var(--text-primary);
   letter-spacing: -0.02em;
@@ -286,7 +336,7 @@ body.nav-collapsed #primary-nav {
   margin-bottom: 8px;
 }
 .today-hero-topic {
-  font-size: 1.3rem;
+  font-size: clamp(1rem, 3vw, 1.3rem);
   font-weight: 700;
   color: var(--text-primary);
   line-height: 1.3;
@@ -400,7 +450,8 @@ body.nav-collapsed #primary-nav {
   flex-shrink: 0;
   transition:
     width 0.25s ease,
-    min-width 0.25s ease;
+    min-width 0.25s ease,
+    transform 0.25s ease;
 }
 
 /* Sidebar collapsed: zero width so roadmap-main fills the area */
@@ -410,6 +461,14 @@ body.sidebar-collapsed #panel-roadmap #sidebar {
   overflow: hidden;
   border-right: none;
 }
+
+/* ──────────────────────────────────────────────────────────── *
+ * MOBILE ROADMAP SIDEBAR FIX
+ * On ≤992px the sidebar keeps position:sticky (in flex-flow).
+ * translateX(-100%) hides it visually but it still consumes 300px of
+ * horizontal space — on a 384px screen that leaves only 84px for content.
+ * Fix: collapse width to 0 on mobile; use is-open to reveal as overlay.
+ * ──────────────────────────────────────────────────────────── */
 
 /* ── System Design Lab ──────────────────────────────────────── */
 .sd-add-btn {
@@ -768,17 +827,34 @@ a.site-logo {
   display: none !important;
 }
 
-/* ── Responsive ─────────────────────────────────────────────── */
-@media (max-width: 1100px) {
-  .dash-two-col {
-    grid-template-columns: 1fr;
+/* ─────────────────────────────────────────────────────────────
+   RESPONSIVE — Mobile-First
+   Breakpoints: 1200  /  992  /  768  /  480
+   ───────────────────────────────────────────────────────────── */
+
+/* ── Large desktop (1200px+): generous spacing ─────────────── */
+@media (min-width: 1200px) {
+  .panel-inner {
+    padding: 32px 40px 80px;
   }
-  .analytics-grid {
-    grid-template-columns: 1fr;
+  .dash-two-col {
+    grid-template-columns: 1fr 280px;
+  }
+  .analytics-stats-row {
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 
-@media (max-width: 900px) {
+/* ── Below large desktop ────────────────────────────────────── */
+@media (max-width: 1200px) {
+  .dash-two-col {
+    grid-template-columns: 1fr 240px;
+  }
+}
+
+/* ── Tablet (≤992px): sidebar becomes overlay ──────────────── */
+@media (max-width: 992px) {
+  /* Primary nav: fixed overlay on tablet/mobile — out of flex flow */
   #primary-nav {
     position: fixed;
     left: 0;
@@ -786,30 +862,93 @@ a.site-logo {
     bottom: 0;
     transform: translateX(-100%);
     z-index: 1001;
+    width: 240px;
+    min-width: 0; /* prevent any residual flex-basis contribution */
   }
   #primary-nav.is-open {
     transform: translateX(0);
     box-shadow: var(--shadow-lg);
   }
+  /* Reset desktop nav-collapsed on tablet */
+  body.nav-collapsed #primary-nav {
+    width: 240px;
+    min-width: 0;
+    overflow: auto;
+    border-right: 1px solid var(--border);
+  }
+  /* App shell fills full viewport when nav is fixed */
   #app-shell {
     width: 100%;
+    max-width: 100vw;
+  }
+  /* ██████████████████████  ROADMAP SIDEBAR FIX */
+  /* Collapse width to 0 — hides it from flex flow entirely */
+  #panel-roadmap #sidebar {
+    width: 0 !important;
+    min-width: 0 !important;
+    overflow: hidden !important;
+    border-right: none !important;
+    transform: none !important;
+  }
+  /* When opened via sidebar-toggle: slide in as overlay */
+  #panel-roadmap #sidebar.is-open {
+    width: 300px !important;
+    min-width: 180px !important;
+    overflow: auto !important;
+    border-right: 1px solid var(--border) !important;
+    position: fixed !important;
+    top: 56px !important;
+    left: 0 !important;
+    bottom: 0 !important;
+    z-index: 900 !important;
+    box-shadow: var(--shadow-lg);
+  }
+  /* Roadmap main fills full width */
+  #roadmap-main {
+    width: 100%;
+    max-width: 100vw;
+  }
+  /* Inside roadmap: reset any remaining margin-left */
+  #panel-roadmap #main-content {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
   }
   .panel-inner {
-    padding: 16px 14px 80px;
+    padding: 20px 20px 80px;
   }
+  /* Two col → single col at tablet */
+  .dash-two-col {
+    grid-template-columns: 1fr;
+  }
+  /* Analytics grid: side by side → stacked */
+  .analytics-grid {
+    grid-template-columns: 1fr;
+  }
+  /* Analytics stats: 4→2 */
   .analytics-stats-row {
     grid-template-columns: repeat(2, 1fr);
   }
+  /* SD cards */
   .sd-cards {
     grid-template-columns: 1fr;
   }
-  /* Planner table: horizontal scroll */
+  /* Planner table: horizontal scroll + sticky head */
   .lms-table-wrap {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
   }
   .lms-planner-table {
-    min-width: 560px;
+    min-width: 580px;
+  }
+  .lms-planner-table thead th {
+    position: sticky;
+    top: 0;
+    background: var(--bg-surface);
+    z-index: 1;
   }
   /* Config bar: wrap */
   .lms-config-bar {
@@ -819,6 +958,7 @@ a.site-logo {
   /* Panel page header: stack */
   .panel-page-header {
     flex-direction: column;
+    align-items: flex-start;
     gap: 10px;
   }
   /* Roadmap sizing */
@@ -827,10 +967,20 @@ a.site-logo {
   }
 }
 
-@media (max-width: 600px) {
+/* ── Mobile (≤768px): compact layout ───────────────────────── */
+@media (max-width: 768px) {
+  #site-header {
+    padding: 0 12px;
+  }
+  .panel-inner {
+    padding: 16px 16px 80px;
+  }
+  /* Today hero: stack vertically */
   .today-hero {
     flex-direction: column;
     align-items: flex-start;
+    padding: 18px 20px;
+    gap: 14px;
   }
   .today-hero-right {
     align-items: flex-start;
@@ -840,46 +990,78 @@ a.site-logo {
     width: 100%;
     text-align: center;
   }
-  .panel-title {
-    font-size: 1.2rem;
-  }
+  /* SD form: single column */
   .sd-form-grid {
     grid-template-columns: 1fr;
   }
+  /* SD form actions: stack */
+  .sd-form-actions {
+    flex-direction: column;
+  }
+  .sd-save-btn,
+  .sd-cancel-btn {
+    width: 100%;
+    text-align: center;
+  }
+  /* Stats: 4→2 */
   .analytics-stats-row {
     grid-template-columns: repeat(2, 1fr);
   }
+  /* Lesson nav buttons: full width */
+  .lesson-nav {
+    flex-direction: column;
+  }
+  .nav-btn {
+    width: 100%;
+  }
+  /* Floating elements: safe-area aware */
+  #aic-chat-trigger {
+    bottom: calc(16px + env(safe-area-inset-bottom));
+    right: 14px;
+    width: 48px;
+    height: 48px;
+  }
+  #aic-chat-panel {
+    bottom: calc(74px + env(safe-area-inset-bottom));
+    right: 10px;
+    left: 10px;
+    width: auto;
+    max-height: calc(100dvh - 110px);
+  }
+  #aic-reminder-popup {
+    bottom: calc(78px + env(safe-area-inset-bottom));
+    right: 10px;
+    left: 10px;
+    width: auto;
+  }
+  #scroll-top {
+    bottom: calc(76px + env(safe-area-inset-bottom));
+    right: 14px;
+  }
 }
 
-/* ── S24 Ultra and small phones (≤480px) ─────────────────────── */
+/* ── Small mobile (≤480px): S24 Ultra, iPhone SE ────────────── */
 @media (max-width: 480px) {
-  /* Header */
   #site-header {
     padding: 0 10px;
   }
-  /* Panels */
   .panel-inner {
     padding: 14px 12px 100px;
   }
-  .panel-title {
-    font-size: 1.1rem;
-  }
   .panel-subtitle {
-    font-size: 0.78rem;
+    font-size: 0.75rem;
   }
-  /* Today hero */
+  /* Today hero: compact */
   .today-hero {
-    padding: 16px;
-    gap: 14px;
-  }
-  .today-hero-topic {
-    font-size: 1rem !important;
+    padding: 14px 14px;
+    gap: 12px;
   }
   /* Dashboard stat cards: 2 columns */
   .lms-dashboard-grid {
     grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px;
   }
-  /* Streaks: horizontal row */
+  /* Streak cards: wrap in row */
   .lms-streak-row {
     flex-direction: row !important;
     flex-wrap: wrap !important;
@@ -889,23 +1071,28 @@ a.site-logo {
     flex: 1;
     min-width: 140px;
   }
-  /* Progress section */
+  /* Progress section: tighter */
   .dash-two-col {
-    grid-template-columns: 1fr;
-    gap: 12px;
+    gap: 10px;
   }
-  /* Analytics */
+  /* Analytics stats: 2-col compact */
   .analytics-stats-row {
     grid-template-columns: repeat(2, 1fr);
     gap: 8px;
   }
   .analytics-stat-card {
-    padding: 14px 12px;
+    padding: 14px 10px;
   }
-  /* SD Lab */
+  .analytics-stat-val {
+    font-size: 1.5rem;
+  }
+  .analytics-stat-lbl {
+    font-size: 0.65rem;
+  }
+  /* SD Lab: full-width add button */
   .sd-add-btn {
-    padding: 7px 12px;
-    font-size: 0.78rem;
+    width: 100%;
+    justify-content: center;
   }
   /* Planner toolbar: stack */
   .lms-planner-toolbar {
@@ -913,54 +1100,46 @@ a.site-logo {
     align-items: flex-start;
     gap: 8px;
   }
-  /* Jump to today btn: full width */
   .lms-jump-today-btn {
     width: 100%;
     justify-content: center;
   }
-  /* AI Coach grids */
+  /* SD stats bar: wrap */
+  .sd-stats-bar {
+    flex-direction: column;
+    gap: 8px;
+  }
+  .sd-stat-pill {
+    width: 100%;
+  }
+  /* AI Coach grids: single column */
   .aic-grid,
   .aic-grid-3 {
     grid-template-columns: 1fr;
-    gap: 12px;
+    gap: 10px;
   }
   .aic-interview-problems {
     grid-template-columns: 1fr;
   }
+  /* Interview step tabs: scroll */
   .aic-inter-steps {
     overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
     flex-wrap: nowrap;
   }
   .aic-inter-step {
     font-size: 0.58rem;
-    min-width: 56px;
+    min-width: 54px;
+    padding: 7px 4px;
   }
-}
-
-/* ── Floating chat: safe area & mobile positioning ───────────── */
-@media (max-width: 600px) {
-  #aic-chat-trigger {
-    bottom: calc(16px + env(safe-area-inset-bottom));
-    right: 16px;
-    width: 48px;
-    height: 48px;
+  /* SD card actions: stack */
+  .sd-card-actions {
+    flex-direction: column;
+    gap: 6px;
   }
-  #aic-chat-panel {
-    bottom: calc(76px + env(safe-area-inset-bottom));
-    right: 10px;
-    left: 10px;
-    width: auto;
-    max-height: calc(100dvh - 120px);
-  }
-  #aic-reminder-popup {
-    bottom: calc(80px + env(safe-area-inset-bottom));
-    right: 10px;
-    left: 10px;
-    width: auto;
-  }
-  #scroll-top {
-    bottom: calc(80px + env(safe-area-inset-bottom));
-    right: 16px;
+  .sd-card-btn {
+    width: 100%;
+    justify-content: center;
   }
 }
 

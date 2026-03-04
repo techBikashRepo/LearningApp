@@ -290,7 +290,7 @@ function _buildSidebar() {
         partEl.addEventListener("click", () => {
           Router.navigate(subj.id, ch.id, part.num);
           // Close sidebar on mobile after selection
-          if (window.innerWidth < 960) _closeSidebarMobile();
+          if (window.innerWidth < 992) _closeSidebarMobile();
         });
         partsList.appendChild(partEl);
       });
@@ -683,8 +683,8 @@ function _wireUI() {
 
   // Primary nav toggle — mobile: overlay slide-in, desktop: collapse width
   $("primary-nav-toggle")?.addEventListener("click", () => {
-    if (window.innerWidth <= 900) {
-      // Mobile: slide in with overlay
+    if (window.innerWidth <= 992) {
+      // Mobile/tablet: slide in with overlay
       const nav = $("primary-nav");
       const overlay = $("primary-nav-overlay");
       nav?.classList.toggle("is-open");
@@ -748,7 +748,7 @@ function _wireUI() {
   });
 
   // Responsive: collapse sidebar on small screens by default
-  if (window.innerWidth < 960) {
+  if (window.innerWidth < 992) {
     SIDEBAR()?.classList.remove("is-open");
     App.sidebarOpen = false;
   }
@@ -758,8 +758,8 @@ function _wireUI() {
 }
 
 function _toggleSidebar() {
-  if (window.innerWidth < 960) {
-    // Mobile: use is-open class
+  if (window.innerWidth < 992) {
+    // Mobile/tablet: use is-open class
     SIDEBAR()?.classList.toggle("is-open");
   } else {
     // Desktop: use body class
@@ -773,12 +773,12 @@ function _closeSidebarMobile() {
 }
 
 function _onResize() {
-  if (window.innerWidth >= 960) {
+  if (window.innerWidth >= 992) {
     SIDEBAR()?.classList.remove("is-open");
     if (App.sidebarOpen) document.body.classList.remove("sidebar-collapsed");
   }
-  if (window.innerWidth <= 900) {
-    // On mobile the primary nav uses transform/overlay, not nav-collapsed
+  if (window.innerWidth <= 992) {
+    // On mobile/tablet the primary nav uses transform/overlay, not nav-collapsed
     document.body.classList.remove("nav-collapsed");
   }
 }
