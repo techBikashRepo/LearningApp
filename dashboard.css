@@ -44,9 +44,13 @@ body.nav-collapsed #primary-nav {
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 18px 16px 14px;
+  padding: 14px 12px 14px 16px;
   border-bottom: 1px solid var(--border);
   margin-bottom: 8px;
+}
+.pnav-brand-text {
+  flex: 1;
+  min-width: 0;
 }
 .pnav-brand-icon {
   font-size: 1.4rem;
@@ -118,21 +122,19 @@ body.nav-collapsed #primary-nav {
 /* Footer */
 .pnav-footer {
   margin-top: auto;
-  padding: 12px 12px 0;
+  padding: 10px 16px;
   border-top: 1px solid var(--border);
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
 }
 .pnav-theme-btn {
   display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 8px 10px;
-  width: 100%;
-  border-radius: 8px;
-  font-size: 0.8rem;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  border-radius: 7px;
   color: var(--text-secondary);
+  flex-shrink: 0;
   transition:
     background 0.15s,
     color 0.15s;
@@ -140,9 +142,6 @@ body.nav-collapsed #primary-nav {
 .pnav-theme-btn:hover {
   background: var(--bg-hover);
   color: var(--text-primary);
-}
-.pnav-theme-label {
-  font-size: 0.78rem;
 }
 .pnav-version {
   font-size: 0.65rem;
