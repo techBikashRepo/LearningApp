@@ -715,16 +715,34 @@ body {
 #lesson-container img,
 #lesson-container video,
 #lesson-container iframe,
-#lesson-container embed {
+#lesson-container embed,
+#lesson-container svg,
+#lesson-container canvas,
+#lesson-container object {
   max-width: 100%;
   height: auto;
 }
+/* SVG inline diagrams: scale with column width */
+.markdown-body svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+.markdown-body canvas {
+  max-width: 100%;
+}
+/* Tables in lesson: .table-wrapper handles scroll — keep table as table */
 #lesson-container table {
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 600px; /* prevents column collapse on narrow viewports */
+}
+/* Fallback: if table has no .table-wrapper ancestor, add its own scroll */
+#lesson-container table:not(.table-wrapper table) {
   display: block;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
   max-width: 100%;
-  border-collapse: collapse;
 }
 #lesson-container pre {
   overflow-x: auto;
@@ -1013,15 +1031,71 @@ body {
   color: var(--text-primary);
 }
 
+/* ── Table wrapper — scrollable container injected by markdownLoader ──────── */
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: visible;
+  -webkit-overflow-scrolling: touch;
+  margin: 1.5em 0;
+  border-radius: 8px;
+  border: 1px solid var(--table-border);
+  /* Scrollbar styling */
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) transparent;
+}
+.table-wrapper::-webkit-scrollbar {
+  height: 6px;
+}
+.table-wrapper::-webkit-scrollbar-track {
+  background: transparent;
+}
+.table-wrapper::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 3px;
+}
+
+/* ── Diagram container — wraps <pre> blocks for horizontal scroll ──────────── */
+.diagram-container {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: visible;
+  -webkit-overflow-scrolling: touch;
+  margin: 1.5em 0;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) transparent;
+}
+.diagram-container::-webkit-scrollbar {
+  height: 6px;
+}
+.diagram-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+.diagram-container::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 3px;
+}
+.diagram-container > pre {
+  margin: 0; /* outer .diagram-container owns the vertical margin */
+}
+
 /* Tables */
 .markdown-body table {
   width: 100%;
+  min-width: 600px; /* keeps columns readable; wrapper scrolls */
   border-collapse: collapse;
-  margin: 1.5em 0;
   font-size: 0.88rem;
+  /* border & border-radius live on .table-wrapper when wrapper present */
   border-radius: 8px;
-  overflow: hidden;
+  overflow: visible; /* was 'hidden' — that blocked horizontal scroll */
   border: 1px solid var(--table-border);
+}
+/* When inside a wrapper the wrapper provides border/radius/margin */
+.table-wrapper > table {
+  border: none;
+  border-radius: 0;
+  margin: 0;
 }
 .markdown-body th {
   background: var(--table-header-bg);
@@ -1031,11 +1105,16 @@ body {
   text-align: left;
   border-bottom: 2px solid var(--table-border);
   white-space: nowrap;
+  /* Sticky header inside scrollable wrapper */
+  position: sticky;
+  top: 0;
+  z-index: 1;
 }
 .markdown-body td {
   padding: 9px 16px;
   border-bottom: 1px solid var(--table-border);
   vertical-align: top;
+  word-break: break-word;
 }
 .markdown-body tr:nth-child(even) td {
   background: var(--table-row-alt);
@@ -1528,8 +1607,24 @@ body.sidebar-collapsed #toc-sidebar {
   .logo-text {
     display: none;
   }
-  /* Tables: horizontal scroll */
-  table {
+  /* Tables: reduce font-size for readability on tablet */
+  .markdown-body table,
+  .markdown-body th,
+  .markdown-body td {
+    font-size: 0.82rem;
+  }
+  .markdown-body th {
+    padding: 8px 12px;
+  }
+  .markdown-body td {
+    padding: 7px 12px;
+  }
+  /* Diagram containers keep horizontal scroll */
+  .diagram-container {
+    margin: 1em 0;
+  }
+  /* Fallback for any bare table without .table-wrapper */
+  .markdown-body table:not(.table-wrapper table) {
     display: block;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
@@ -1546,7 +1641,7 @@ body.sidebar-collapsed #toc-sidebar {
   .lesson-subtitle {
     font-size: 0.82rem;
   }
-  /* Code blocks: scroll horizontally */
+  /* Code blocks: scroll horizontally, smaller font */
   pre[class*="language-"] {
     font-size: 0.78rem !important;
   }
@@ -1560,6 +1655,82 @@ body.sidebar-collapsed #toc-sidebar {
   }
   #search-input-wrap {
     padding: 12px;
+  }
+
+  /* ── Mobile card layout for tables at ≤480px ──────────────────────────── */
+  /* Override min-width so cards fill the viewport */
+  .markdown-body table,
+  .table-wrapper > table {
+    min-width: 0;
+    width: 100%;
+  }
+  /* Collapse standard table structure */
+  .markdown-body table,
+  .markdown-body thead,
+  .markdown-body tbody,
+  .markdown-body th,
+  .markdown-body td,
+  .markdown-body tr {
+    display: block;
+  }
+  /* Hide header row visually (data-label ::before provides labels) */
+  .markdown-body thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+    visibility: hidden;
+  }
+  /* Each row becomes a card */
+  .markdown-body tbody tr {
+    border: 1px solid var(--table-border);
+    border-radius: 10px;
+    margin-bottom: 12px;
+    background: var(--bg-surface);
+    overflow: hidden;
+  }
+  /* Remove wrapper border — each card has its own */
+  .table-wrapper {
+    border: none;
+    background: transparent;
+    padding: 0;
+  }
+  /* Each cell: left side = data-label, right side = value */
+  .markdown-body td {
+    position: relative;
+    padding: 8px 12px 8px 42%;
+    border: none;
+    border-bottom: 1px solid var(--border-muted, var(--border));
+    font-size: 0.8rem;
+    min-height: 36px;
+    white-space: normal;
+    word-break: break-word;
+  }
+  .markdown-body td:last-child {
+    border-bottom: none;
+  }
+  /* Inject column header as label via ::before using data-label */
+  .markdown-body td::before {
+    content: attr(data-label);
+    position: absolute;
+    top: 8px;
+    left: 12px;
+    width: 36%;
+    font-weight: 700;
+    font-size: 0.72rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    line-height: 1.4;
+    word-break: break-word;
+    white-space: normal;
+  }
+  /* Reset alternating row background (now each row is its own card) */
+  .markdown-body tr:nth-child(even) td {
+    background: transparent;
+  }
+  /* Sticky th is hidden — remove position:sticky */
+  .markdown-body th {
+    position: static;
   }
 }
 

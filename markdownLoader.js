@@ -79,6 +79,41 @@ const MarkdownLoader = (() => {
       }
     });
 
+    // 4. Wrap tables in .table-wrapper for responsive horizontal scroll.
+    //    Also stamp data-label on each <td> (from the matching <th> text) so
+    //    the CSS mobile card layout can render column headers via ::before.
+    tmp.querySelectorAll("table").forEach((table) => {
+      // Stamp data-label attributes using thead headers
+      const headers = Array.from(table.querySelectorAll("thead th")).map((th) =>
+        th.textContent.trim(),
+      );
+      if (headers.length) {
+        table.querySelectorAll("tbody tr").forEach((row) => {
+          Array.from(row.querySelectorAll("td")).forEach((td, i) => {
+            if (headers[i]) td.dataset.label = headers[i];
+          });
+        });
+      }
+
+      // Wrap in .table-wrapper div (skip if already wrapped)
+      if (!table.parentElement.classList.contains("table-wrapper")) {
+        const wrapper = document.createElement("div");
+        wrapper.className = "table-wrapper";
+        table.parentNode.insertBefore(wrapper, table);
+        wrapper.appendChild(table);
+      }
+    });
+
+    // 5. Wrap every <pre> in .diagram-container so wide code/ASCII blocks
+    //    scroll horizontally without breaking the page layout.
+    tmp.querySelectorAll("pre").forEach((pre) => {
+      if (pre.parentElement.classList.contains("diagram-container")) return;
+      const wrapper = document.createElement("div");
+      wrapper.className = "diagram-container";
+      pre.parentNode.insertBefore(wrapper, pre);
+      wrapper.appendChild(pre);
+    });
+
     return tmp.innerHTML;
   }
 
