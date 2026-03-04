@@ -580,6 +580,7 @@ body {
   margin-right: 260px;
   min-height: calc(100vh - 56px);
   position: relative;
+  -webkit-overflow-scrolling: touch;
 }
 
 /* ── Welcome Screen ───────────────────────────────────────── */
@@ -1401,19 +1402,19 @@ body.sidebar-collapsed #toc-sidebar {
 
 @media (max-width: 768px) {
   #welcome-screen {
-    padding: 32px 20px;
+    padding: 24px 16px;
   }
   #welcome-screen h1 {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
   }
   .subject-grid {
     grid-template-columns: 1fr;
   }
   #lesson-container {
-    padding: 24px 20px 60px;
+    padding: 20px 16px 80px;
   }
   #lesson-title {
-    font-size: 1.5rem;
+    font-size: 1.35rem;
   }
   .lesson-nav {
     flex-direction: column;
@@ -1438,6 +1439,33 @@ body.sidebar-collapsed #toc-sidebar {
   }
   .logo-text {
     display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  #lesson-container {
+    padding: 16px 14px 100px;
+  }
+  #lesson-title {
+    font-size: 1.2rem;
+  }
+  .lesson-subtitle {
+    font-size: 0.82rem;
+  }
+  /* Code blocks: scroll horizontally */
+  pre[class*="language-"] {
+    font-size: 0.78rem !important;
+  }
+  #search-overlay {
+    padding-top: 20px;
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+  #search-modal {
+    border-radius: 12px;
+  }
+  #search-input-wrap {
+    padding: 12px;
   }
 }
 

@@ -800,3 +800,28 @@
     font-size: 1.2rem;
   }
 }
+@media (max-width: 480px) {
+  .lms-dashboard-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+  .lms-stat-card {
+    padding: 14px 12px;
+  }
+  .lms-stat-value {
+    font-size: 1.4rem !important;
+  }
+  /* Heatmap: allow horizontal scroll */
+  .lms-heatmap-scroll {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  /* Planner notes input: full width */
+  .lms-note-input {
+    width: 100%;
+    min-width: unset;
+  }
+  .lms-streak-value {
+    font-size: 1.6rem !important;
+  }
+}

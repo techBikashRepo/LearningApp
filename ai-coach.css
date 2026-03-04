@@ -852,10 +852,76 @@
 }
 @media (max-width: 600px) {
   #aic-chat-panel {
-    width: calc(100vw - 24px);
-    right: 12px;
-    bottom: 80px;
-    max-height: 70vh;
+    width: calc(100vw - 20px);
+    right: 10px;
+    left: 10px;
+    bottom: calc(76px + env(safe-area-inset-bottom));
+    max-height: calc(70dvh - env(safe-area-inset-bottom));
+  }
+  .aic-chat-messages {
+    min-height: 160px;
+    max-height: 260px;
+  }
+  .aic-chat-name {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  /* AI Coach panel grids collapse */
+  .aic-grid,
+  .aic-grid-3 {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .aic-interview-problems {
+    grid-template-columns: 1fr;
+  }
+  /* Interview step tabs: scroll */
+  .aic-inter-steps {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    flex-wrap: nowrap;
+  }
+  .aic-inter-step {
+    font-size: 0.58rem;
+    padding: 7px 3px;
+    min-width: 52px;
+  }
+  /* Card padding */
+  .aic-card {
+    padding: 16px 14px;
+  }
+  /* Confidence buttons: wrap */
+  .aic-confidence-row {
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  /* Diagram output: smaller font */
+  .aic-diagram-output,
+  .arch-diagram {
+    font-size: 0.66rem;
+    line-height: 1.7;
+    padding: 12px;
+  }
+  /* Reminder banner: stack on very small */
+  .aic-reminder {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  /* Trigger button: safe area */
+  #aic-chat-trigger {
+    bottom: calc(16px + env(safe-area-inset-bottom));
+    right: 14px;
+    width: 46px;
+    height: 46px;
+  }
+  /* Popup: full-bleed */
+  #aic-reminder-popup {
+    left: 10px;
+    right: 10px;
+    width: auto;
+    bottom: calc(76px + env(safe-area-inset-bottom));
   }
 }
 
