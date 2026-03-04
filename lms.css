@@ -3,44 +3,6 @@
    Inherits all CSS variables from style.css
    ============================================================ */
 
-/* ── LMS Nav Button (header) ──────────────────────────────── */
-#lms-nav-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 6px 13px 6px 10px;
-  border-radius: 20px;
-  font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: var(--accent);
-  border: 1.5px solid var(--accent-border);
-  background: var(--accent-glow);
-  box-shadow: 0 0 0 0 transparent;
-  transition: all 0.18s ease;
-  white-space: nowrap;
-  cursor: pointer;
-  line-height: 1;
-  height: 32px;
-}
-#lms-nav-btn:hover {
-  background: var(--accent);
-  color: #fff;
-  border-color: var(--accent);
-  box-shadow: 0 2px 12px rgba(var(--accent-rgb, 88, 166, 255), 0.35);
-  transform: translateY(-1px);
-}
-#lms-nav-btn:active {
-  transform: translateY(0);
-  box-shadow: none;
-}
-#lms-nav-btn svg {
-  flex-shrink: 0;
-  position: relative;
-  top: 0;
-}
-
 /* ── LMS Screen ───────────────────────────────────────────── */
 #lms-screen {
   padding: 32px 40px 80px;
@@ -172,7 +134,7 @@
 /* ── Dashboard Grid ───────────────────────────────────────── */
 .lms-dashboard-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
   gap: 16px;
   margin-bottom: 28px;
 }
@@ -180,13 +142,14 @@
   background: var(--bg-surface);
   border: 1px solid var(--border);
   border-radius: 12px;
-  padding: 20px 18px;
+  padding: 22px 20px 18px;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 6px;
   transition:
     box-shadow var(--transition),
-    border-color var(--transition);
+    border-color var(--transition),
+    transform var(--transition);
   position: relative;
   overflow: hidden;
 }
@@ -200,10 +163,10 @@
   border-radius: 12px 12px 0 0;
 }
 .lms-stat-card.card-total::before {
-  background: #58a6ff;
+  background: #3b82f6;
 }
 .lms-stat-card.card-completed::before {
-  background: #3fb950;
+  background: #22c55e;
 }
 .lms-stat-card.card-remaining::before {
   background: #f59e0b;
@@ -220,30 +183,33 @@
 
 .lms-stat-card:hover {
   box-shadow: var(--shadow-md);
-  border-color: var(--border);
+  border-color: var(--accent-border);
+  transform: translateY(-1px);
 }
 .lms-stat-label {
-  font-size: 0.75rem;
-  font-weight: 600;
+  font-size: 0.7rem;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.07em;
+  letter-spacing: 0.1em;
   color: var(--text-muted);
 }
 .lms-stat-value {
-  font-size: 2rem;
+  font-size: 2.2rem;
   font-weight: 800;
   color: var(--text-primary);
   line-height: 1;
+  letter-spacing: -0.03em;
 }
 .lms-stat-card.card-percent .lms-stat-value {
   color: #a78bfa;
 }
 .lms-stat-card.card-completed .lms-stat-value {
-  color: #3fb950;
+  color: #22c55e;
 }
 .lms-stat-sub {
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   color: var(--text-muted);
+  margin-top: 2px;
 }
 
 /* ── Overall Progress Bar ─────────────────────────────────── */
@@ -428,7 +394,7 @@
 }
 .lms-heatmap-cell[data-count="2"],
 .lms-heatmap-legend-cell[data-count="2"] {
-  background: #3fb950;
+  background: #22c55e;
 }
 .lms-heatmap-cell[data-future="true"] {
   background: transparent;
@@ -682,14 +648,14 @@
   border-color: var(--accent);
 }
 .lms-status-select.status-completed {
-  border-color: rgba(63, 185, 80, 0.5);
-  background: rgba(63, 185, 80, 0.08);
-  color: #3fb950;
+  border-color: rgba(34, 197, 94, 0.45);
+  background: rgba(34, 197, 94, 0.08);
+  color: #22c55e;
 }
 .lms-status-select.status-learning {
-  border-color: rgba(88, 166, 255, 0.5);
-  background: rgba(88, 166, 255, 0.08);
-  color: #58a6ff;
+  border-color: rgba(59, 130, 246, 0.45);
+  background: rgba(59, 130, 246, 0.08);
+  color: #3b82f6;
 }
 .lms-status-select.status-not-started {
   border-color: var(--border);
@@ -732,7 +698,7 @@
 }
 .lms-row-prog-fill {
   height: 100%;
-  background: #3fb950;
+  background: #22c55e;
   border-radius: 99px;
   transition: width 0.3s ease;
 }
@@ -782,6 +748,8 @@
   font-weight: 800;
   color: var(--text-primary);
   line-height: 1;
+  letter-spacing: -0.03em;
+  font-variant-numeric: tabular-nums;
 }
 .lms-streak-label {
   font-size: 0.73rem;
@@ -822,9 +790,6 @@
   }
   .lms-dashboard-grid {
     grid-template-columns: repeat(3, 1fr);
-  }
-  #lms-nav-btn .lms-btn-text {
-    display: none;
   }
 }
 @media (max-width: 600px) {

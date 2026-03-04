@@ -1,0 +1,841 @@
+/* ============================================================
+   dashboard.css — SaaS Learning Platform Layout
+   Extends style.css + lms.css with new shell & panel system
+   ============================================================ */
+
+/* ── Override: Body → Primary Nav + App Shell layout ──────── */
+body {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* ── Primary Navigation Sidebar ───────────────────────────── */
+#primary-nav {
+  width: 224px;
+  min-width: 224px;
+  height: 100vh;
+  background: var(--bg-surface);
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 0 0 16px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  z-index: 1000;
+  transition:
+    transform 0.22s ease,
+    width 0.22s ease,
+    min-width 0.22s ease;
+  flex-shrink: 0;
+}
+
+/* Desktop: primary nav collapsed via hamburger toggle */
+body.nav-collapsed #primary-nav {
+  width: 0;
+  min-width: 0;
+  overflow: hidden;
+  border-right: none;
+}
+
+/* Brand / Logo */
+.pnav-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 18px 16px 14px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 8px;
+}
+.pnav-brand-icon {
+  font-size: 1.4rem;
+  line-height: 1;
+}
+.pnav-brand-title {
+  display: block;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+}
+.pnav-brand-sub {
+  display: block;
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  letter-spacing: 0.03em;
+}
+
+/* Section labels */
+.pnav-section-label {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  padding: 12px 16px 4px;
+  text-transform: uppercase;
+}
+
+/* Nav items */
+.pnav-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 16px;
+  margin: 1px 8px;
+  border-radius: 8px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition:
+    background 0.15s ease,
+    color 0.15s ease;
+  text-align: left;
+  width: calc(100% - 16px);
+  white-space: nowrap;
+}
+.pnav-item:hover {
+  background: var(--bg-hover);
+  color: var(--text-primary);
+}
+.pnav-item.active {
+  background: var(--accent-glow);
+  color: var(--accent);
+  font-weight: 600;
+  border: 1px solid var(--accent-border);
+}
+.pnav-item svg {
+  flex-shrink: 0;
+  opacity: 0.75;
+}
+.pnav-item.active svg {
+  opacity: 1;
+}
+
+/* Footer */
+.pnav-footer {
+  margin-top: auto;
+  padding: 12px 12px 0;
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.pnav-theme-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  width: 100%;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  transition:
+    background 0.15s,
+    color 0.15s;
+}
+.pnav-theme-btn:hover {
+  background: var(--bg-hover);
+  color: var(--text-primary);
+}
+.pnav-theme-label {
+  font-size: 0.78rem;
+}
+.pnav-version {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  padding: 0 4px;
+  text-align: center;
+}
+
+/* Mobile primary nav overlay */
+#primary-nav-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 999;
+  backdrop-filter: blur(2px);
+}
+#primary-nav-overlay.open {
+  display: block;
+}
+
+/* ── App Shell ──────────────────────────────────────────────── */
+#app-shell {
+  flex: 1;
+  min-width: 0;
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-base);
+}
+
+/* ── Override: Site Header → sticky inside app-shell ──────── */
+#site-header {
+  position: sticky !important;
+  top: 0 !important;
+  left: auto !important;
+  right: auto !important;
+  width: auto !important;
+  z-index: 200 !important;
+  flex-shrink: 0;
+}
+
+/* Sidebar toggle only relevant in roadmap panel */
+#sidebar-toggle.pnav-hidden {
+  display: none;
+}
+
+/* ── Panel System ───────────────────────────────────────────── */
+.panel {
+  flex: 1;
+  min-height: 0;
+  animation: panelFadeIn 0.2s ease;
+}
+.panel.hidden {
+  display: none !important;
+}
+@keyframes panelFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.panel-inner {
+  padding: 28px 36px 80px;
+  max-width: 1280px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Panel page header */
+.panel-page-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+}
+.panel-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+.panel-subtitle {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  margin-top: 4px;
+}
+
+/* ── Today's Hero Card ──────────────────────────────────────── */
+.today-hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  background: linear-gradient(
+    135deg,
+    rgba(59, 130, 246, 0.18) 0%,
+    rgba(59, 130, 246, 0.04) 100%
+  );
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  border-radius: 14px;
+  padding: 24px 28px;
+  margin-bottom: 28px;
+  position: relative;
+  overflow: hidden;
+  flex-wrap: wrap;
+}
+.today-hero::before {
+  content: "";
+  position: absolute;
+  top: -60%;
+  right: -10%;
+  width: 280px;
+  height: 280px;
+  background: radial-gradient(
+    circle,
+    rgba(59, 130, 246, 0.1) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+.today-hero-eyebrow {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+.today-hero-topic {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.3;
+  margin-bottom: 4px;
+}
+.today-hero-subject {
+  font-size: 0.79rem;
+  color: var(--text-secondary);
+}
+.today-hero-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+}
+.today-session-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 5px 12px;
+}
+.today-planner-btn {
+  padding: 8px 18px;
+  background: var(--accent);
+  color: #fff;
+  border-radius: 8px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition:
+    opacity 0.15s ease,
+    transform 0.15s ease;
+  white-space: nowrap;
+}
+.today-planner-btn:hover {
+  opacity: 0.88;
+  transform: translateY(-1px);
+}
+
+/* Today hero status variants */
+.today-hero[data-status="completed"] {
+  background: linear-gradient(
+    135deg,
+    rgba(34, 197, 94, 0.15) 0%,
+    rgba(34, 197, 94, 0.04) 100%
+  );
+  border-color: rgba(34, 197, 94, 0.4);
+}
+.today-hero[data-status="completed"] .today-hero-eyebrow {
+  color: #22c55e;
+}
+.today-hero[data-status="learning"] {
+  background: linear-gradient(
+    135deg,
+    rgba(245, 158, 11, 0.15) 0%,
+    rgba(245, 158, 11, 0.04) 100%
+  );
+  border-color: rgba(245, 158, 11, 0.4);
+}
+.today-hero[data-status="learning"] .today-hero-eyebrow {
+  color: #f59e0b;
+}
+
+/* ── Dashboard 2-column layout ──────────────────────────────── */
+.dash-two-col {
+  display: grid;
+  grid-template-columns: 1fr 260px;
+  gap: 20px;
+  align-items: start;
+}
+
+/* ── Override: App Layout inside Roadmap Panel ─────────────── */
+.panel-roadmap {
+  display: flex;
+  height: calc(100vh - 56px);
+  overflow: hidden;
+}
+
+/* Roadmap's inner container for main lesson content */
+#roadmap-main {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  overflow-y: auto;
+}
+
+/* Override #app-layout for panel context */
+#panel-roadmap #app-layout {
+  padding-top: 0 !important;
+  min-height: unset !important;
+}
+
+/* Override #main-content for panel-roadmap */
+#panel-roadmap #main-content,
+#roadmap-main {
+  margin-left: 0 !important;
+  padding-left: 0 !important;
+}
+
+/* Override #sidebar to be sticky within roadmap panel */
+#panel-roadmap #sidebar {
+  position: sticky !important;
+  top: 0 !important;
+  height: calc(100vh - 56px) !important;
+  flex-shrink: 0;
+  transition:
+    width 0.25s ease,
+    min-width 0.25s ease;
+}
+
+/* Sidebar collapsed: zero width so roadmap-main fills the area */
+body.sidebar-collapsed #panel-roadmap #sidebar {
+  width: 0;
+  min-width: 0;
+  overflow: hidden;
+  border-right: none;
+}
+
+/* ── System Design Lab ──────────────────────────────────────── */
+.sd-add-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: var(--accent);
+  color: #fff;
+  border-radius: 8px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.15s ease;
+  white-space: nowrap;
+}
+.sd-add-btn:hover {
+  opacity: 0.88;
+}
+
+/* Add Problem Form */
+.sd-form {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 24px;
+}
+.sd-form-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 18px;
+}
+.sd-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+.sd-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.sd-form-group label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.sd-form-group input,
+.sd-form-group select,
+.sd-form-group textarea {
+  padding: 8px 10px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  color: var(--text-primary);
+  font-size: 0.83rem;
+  font-family: inherit;
+  transition: border-color 0.15s;
+}
+.sd-form-group input:focus,
+.sd-form-group select:focus,
+.sd-form-group textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+.sd-form-group textarea {
+  resize: vertical;
+  min-height: 60px;
+}
+.sd-form-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 6px;
+}
+.sd-save-btn {
+  padding: 8px 18px;
+  background: var(--accent);
+  color: #fff;
+  border-radius: 7px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+}
+.sd-cancel-btn {
+  padding: 8px 14px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  border-radius: 7px;
+  font-size: 0.82rem;
+  cursor: pointer;
+}
+
+/* SD Stats bar */
+.sd-stats-bar {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+.sd-stat-pill {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8rem;
+}
+.sd-stat-pill .sd-stat-val {
+  font-weight: 700;
+  color: var(--accent);
+  font-size: 1.1rem;
+}
+.sd-stat-pill .sd-stat-lbl {
+  color: var(--text-secondary);
+}
+
+/* SD Problem cards */
+.sd-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 16px;
+  margin-bottom: 32px;
+}
+.sd-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+  position: relative;
+  transition:
+    box-shadow 0.15s ease,
+    border-color 0.15s ease;
+}
+.sd-card:hover {
+  box-shadow: var(--shadow-md);
+  border-color: var(--border);
+}
+.sd-card-toprow {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+.sd-card-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.3;
+}
+.sd-card-actions {
+  display: flex;
+  gap: 4px;
+  flex-shrink: 0;
+}
+.sd-card-btn {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 0.75rem;
+  transition: all 0.15s;
+}
+.sd-card-btn:hover {
+  background: var(--bg-hover);
+  color: var(--text-primary);
+}
+.sd-card-btn.delete:hover {
+  background: rgba(239, 68, 68, 0.12);
+  color: #ef4444;
+  border-color: rgba(239, 68, 68, 0.3);
+}
+.sd-card-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+.sd-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  border-radius: 20px;
+  font-size: 0.69rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.sd-badge.easy {
+  background: rgba(34, 197, 94, 0.12);
+  color: #22c55e;
+  border: 1px solid rgba(34, 197, 94, 0.25);
+}
+.sd-badge.medium {
+  background: rgba(245, 158, 11, 0.12);
+  color: #f59e0b;
+  border: 1px solid rgba(245, 158, 11, 0.25);
+}
+.sd-badge.hard {
+  background: rgba(239, 68, 68, 0.12);
+  color: #ef4444;
+  border: 1px solid rgba(239, 68, 68, 0.25);
+}
+.sd-confidence-bar {
+  height: 4px;
+  background: var(--bg-elevated);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+.sd-confidence-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent), #a78bfa);
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+.sd-card-concepts {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+.sd-card-notes {
+  margin-top: 8px;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-style: italic;
+  line-height: 1.5;
+  border-top: 1px solid var(--border-muted);
+  padding-top: 8px;
+}
+.sd-card-date {
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  margin-top: 8px;
+}
+
+/* SD Empty state */
+.sd-empty {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--text-muted);
+}
+.sd-empty-icon {
+  font-size: 2.5rem;
+  margin-bottom: 16px;
+}
+.sd-empty-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 6px;
+}
+.sd-empty-sub {
+  font-size: 0.82rem;
+}
+
+/* ── Analytics Panel ────────────────────────────────────────── */
+.analytics-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 28px;
+}
+.analytics-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 22px 20px;
+}
+.analytics-card-title {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+}
+.analytics-chart-wrap {
+  position: relative;
+  height: 200px;
+}
+.analytics-stats-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 28px;
+}
+.analytics-stat-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 18px 16px;
+  text-align: center;
+}
+.analytics-stat-val {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.analytics-stat-lbl {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+}
+
+/* ── Override lms-screen to work as panel-inner ─────────────── */
+#lms-screen {
+  display: none !important; /* Replaced by panel system */
+}
+
+/* ── Override reading progress bar for new shell ────────────── */
+#reading-progress {
+  z-index: 2000;
+}
+
+/* ── Scroll-to-top button ────────────────────────────────────── */
+#scroll-top {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+}
+
+/* ── Slot dot (morning session) ─────────────────────────────── */
+.slot-dot.morning {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #f59e0b;
+  flex-shrink: 0;
+  display: inline-block;
+}
+
+/* ── Override: Remove old a.site-logo from header ────────────── */
+a.site-logo {
+  display: none !important;
+}
+
+/* ── Responsive ─────────────────────────────────────────────── */
+@media (max-width: 1100px) {
+  .dash-two-col {
+    grid-template-columns: 1fr;
+  }
+  .analytics-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 900px) {
+  #primary-nav {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    transform: translateX(-100%);
+    z-index: 1001;
+  }
+  #primary-nav.is-open {
+    transform: translateX(0);
+    box-shadow: var(--shadow-lg);
+  }
+  /* overlay is now .open class, no override needed */
+  #app-shell {
+    width: 100%;
+  }
+  .panel-inner {
+    padding: 20px 16px 60px;
+  }
+  .analytics-stats-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .sd-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .today-hero {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .today-hero-right {
+    align-items: flex-start;
+    width: 100%;
+  }
+  .today-planner-btn {
+    width: 100%;
+    text-align: center;
+  }
+  .panel-title {
+    font-size: 1.2rem;
+  }
+  .sd-form-grid {
+    grid-template-columns: 1fr;
+  }
+  .analytics-stats-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ── Light theme overrides ──────────────────────────────────── */
+[data-theme="light"] .today-hero {
+  background: linear-gradient(
+    135deg,
+    rgba(59, 130, 246, 0.1) 0%,
+    rgba(59, 130, 246, 0.02) 100%
+  );
+  border-color: rgba(59, 130, 246, 0.25);
+}
+[data-theme="light"] #primary-nav {
+  background: var(--bg-surface);
+}

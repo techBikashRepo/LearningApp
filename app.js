@@ -17,6 +17,105 @@ const App = {
 };
 
 // ══════════════════════════════════════════════════════════════
+//  Nav Controller
+// ══════════════════════════════════════════════════════════════
+
+const Nav = (() => {
+  const PANELS = [
+    "dashboard",
+    "planner",
+    "roadmap",
+    "sysdesign",
+    "analytics",
+    "heatmap",
+    "aicoach",
+  ];
+  const LABELS = {
+    dashboard: "Dashboard",
+    planner: "Daily Planner",
+    roadmap: "Learning Roadmap",
+    sysdesign: "System Design Lab",
+    analytics: "Analytics",
+    heatmap: "Study Heatmap",
+    aicoach: "AI Coach",
+  };
+  let current = "dashboard";
+
+  function show(id) {
+    if (!PANELS.includes(id)) return;
+    PANELS.forEach((p) => {
+      document
+        .getElementById("panel-" + p)
+        ?.classList.toggle("hidden", p !== id);
+    });
+    document.querySelectorAll(".pnav-item").forEach((el) => {
+      el.classList.toggle("active", el.dataset.panel === id);
+    });
+    // Update breadcrumb only when not in roadmap (roadmap manages its own breadcrumb)
+    const bc = document.getElementById("breadcrumb-subject");
+    if (bc && id !== "roadmap") bc.textContent = LABELS[id] || id;
+    // Toggle sidebar-toggle visibility (only useful in roadmap)
+    const sbToggle = document.getElementById("sidebar-toggle");
+    if (sbToggle) sbToggle.classList.toggle("pnav-hidden", id !== "roadmap");
+    current = id;
+    // Render panel contents
+    if (id === "dashboard") {
+      LMS?.renderDashboard?.();
+      _renderTodayHero();
+    }
+    if (id === "planner") {
+      LMS?.renderPlanner?.();
+      LMS?._syncStartDate?.();
+    }
+    if (id === "heatmap") {
+      LMS?.renderHeatmap?.();
+    }
+    if (id === "analytics") {
+      typeof Analytics !== "undefined" && Analytics?.render?.();
+    }
+    if (id === "sysdesign") {
+      typeof SystemDesign !== "undefined" && SystemDesign?.render?.();
+    }
+    if (id === "aicoach") {
+      typeof AICoach !== "undefined" && AICoach?.render?.();
+    }
+    sessionStorage.setItem("lp_panel", id);
+    document.getElementById("app-shell")?.scrollTo({ top: 0 });
+    // Close mobile primary nav
+    document.getElementById("primary-nav")?.classList.remove("is-open");
+    document.getElementById("primary-nav-overlay")?.classList.remove("open");
+  }
+
+  function getCurrent() {
+    return current;
+  }
+  return { show, getCurrent };
+})();
+
+function _renderTodayHero() {
+  const topic = LMS?.getTodayTopic?.();
+  const nameEl = document.getElementById("today-topic-name");
+  const subjEl = document.getElementById("today-topic-subject");
+  const dateEl = document.getElementById("today-date-label");
+  const hero = document.getElementById("today-hero");
+  if (dateEl)
+    dateEl.textContent = new Date().toLocaleDateString("en-US", {
+      weekday: "long",
+      month: "short",
+      day: "numeric",
+    });
+  if (!topic) {
+    if (nameEl) nameEl.textContent = "No topic scheduled for today";
+    if (subjEl) subjEl.textContent = "";
+    return;
+  }
+  if (nameEl) nameEl.textContent = topic.title;
+  if (subjEl)
+    subjEl.textContent = (topic.subject || "") + " · Day " + topic.day;
+  if (hero) hero.dataset.status = topic.status || "not-started";
+}
+
+// ══════════════════════════════════════════════════════════════
 //  DOM Shortcuts
 // ══════════════════════════════════════════════════════════════
 
@@ -58,15 +157,15 @@ async function bootstrap() {
   } catch (e) {
     document.body.innerHTML = `
       <div style="display:flex;align-items:center;justify-content:center;min-height:100vh;
-                  flex-direction:column;gap:16px;font-family:system-ui;color:#e6edf3;background:#0f1117;">
+                  flex-direction:column;gap:16px;font-family:Inter,system-ui;color:#e2e8f0;background:#0f172a;">
         <div style="font-size:2rem">⚠️</div>
         <h2>Could not load curriculum.json</h2>
-        <p style="color:#8b949e;max-width:400px;text-align:center">
+        <p style="color:#94a3b8;max-width:400px;text-align:center">
           Please open this site via a local server (e.g. VS Code Live Server).
           <br><br><strong>curriculum.json</strong> must be served over HTTP/HTTPS — 
           it cannot be loaded via the <em>file://</em> protocol.
         </p>
-        <code style="background:#161b22;padding:8px 16px;border-radius:8px;font-size:0.85rem;color:#58a6ff">
+        <code style="background:#1e293b;padding:8px 16px;border-radius:8px;font-size:0.85rem;color:#3b82f6">
           http://localhost:5500
         </code>
       </div>`;
@@ -90,6 +189,15 @@ async function bootstrap() {
 
   // 6. UI wiring
   _wireUI();
+
+  // 7. Init System Design Lab
+  typeof SystemDesign !== "undefined" && SystemDesign?.init?.();
+
+  // 8. Init AI Coach
+  typeof AICoach !== "undefined" && AICoach?.init?.();
+
+  // 9. Show initial panel (restore from session, default to dashboard)
+  Nav.show(sessionStorage.getItem("lp_panel") || "dashboard");
 }
 
 // ══════════════════════════════════════════════════════════════
@@ -291,6 +399,7 @@ async function _onRoute(route) {
   }
 
   if (route.type === "lesson") {
+    Nav.show("roadmap");
     await _loadLesson(route.subjectId, route.chapterId, route.partNum);
   }
 }
@@ -567,16 +676,42 @@ function _updateProgress() {
 // ══════════════════════════════════════════════════════════════
 
 function _wireUI() {
-  // Sidebar toggle
+  // Primary nav item clicks (SaaS sidebar)
+  document.querySelectorAll(".pnav-item").forEach((item) => {
+    item.addEventListener("click", () => Nav.show(item.dataset.panel));
+  });
+
+  // Primary nav toggle — mobile: overlay slide-in, desktop: collapse width
+  $("primary-nav-toggle")?.addEventListener("click", () => {
+    if (window.innerWidth <= 900) {
+      // Mobile: slide in with overlay
+      const nav = $("primary-nav");
+      const overlay = $("primary-nav-overlay");
+      nav?.classList.toggle("is-open");
+      overlay?.classList.toggle("open", nav?.classList.contains("is-open"));
+    } else {
+      // Desktop: collapse/expand primary nav (frees full width for content)
+      document.body.classList.toggle("nav-collapsed");
+    }
+  });
+  $("primary-nav-overlay")?.addEventListener("click", () => {
+    $("primary-nav")?.classList.remove("is-open");
+    $("primary-nav-overlay")?.classList.remove("open");
+  });
+
+  // Today hero → open planner
+  $("today-open-planner")?.addEventListener("click", () => Nav.show("planner"));
+
+  // Sidebar toggle (inside roadmap panel)
   $("sidebar-toggle")?.addEventListener("click", _toggleSidebar);
 
   // Sidebar overlay click (mobile)
   $("sidebar-overlay")?.addEventListener("click", _closeSidebarMobile);
 
-  // Site logo → home
+  // Site logo → go to dashboard
   $("site-logo")?.addEventListener("click", (e) => {
     e.preventDefault();
-    Router.navigateHome();
+    Nav.show("dashboard");
   });
 
   // Scroll to top button
@@ -641,6 +776,10 @@ function _onResize() {
   if (window.innerWidth >= 960) {
     SIDEBAR()?.classList.remove("is-open");
     if (App.sidebarOpen) document.body.classList.remove("sidebar-collapsed");
+  }
+  if (window.innerWidth <= 900) {
+    // On mobile the primary nav uses transform/overlay, not nav-collapsed
+    document.body.classList.remove("nav-collapsed");
   }
 }
 

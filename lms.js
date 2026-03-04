@@ -642,54 +642,6 @@ const LMS = (() => {
     tr.classList.toggle("row-completed-both", done);
   }
 
-  // ── Show / Hide LMS Screen ───────────────────────────────────
-  function showLMS() {
-    // Hide app views
-    const ids = ["welcome-screen", "lesson-container", "loader", "error-state"];
-    ids.forEach((id) => {
-      const el = document.getElementById(id);
-      if (el) el.classList.add("hidden");
-    });
-
-    // Hide TOC sidebar
-    const toc = document.getElementById("toc-sidebar");
-    if (toc) toc.style.display = "none";
-
-    // Show LMS
-    const screen = document.getElementById("lms-screen");
-    if (screen) screen.classList.remove("hidden");
-
-    // Render everything
-    _syncStartDate();
-    renderDashboard();
-    renderHeatmap();
-    renderPlanner();
-
-    // Update breadcrumb
-    const bc = document.getElementById("breadcrumb-subject");
-    if (bc) bc.textContent = "📊 Learning Management System";
-
-    // Scroll to top
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  }
-
-  function hideLMS() {
-    const screen = document.getElementById("lms-screen");
-    if (screen) screen.classList.add("hidden");
-
-    // Restore TOC sidebar
-    const toc = document.getElementById("toc-sidebar");
-    if (toc) toc.style.display = "";
-
-    // Show welcome screen
-    const welcome = document.getElementById("welcome-screen");
-    if (welcome) welcome.classList.remove("hidden");
-
-    // Restore breadcrumb
-    const bc = document.getElementById("breadcrumb-subject");
-    if (bc) bc.textContent = "Learning Portal";
-  }
-
   function _syncStartDate() {
     const input = document.getElementById("lms-start-date");
     if (input) input.value = state.startDate;
@@ -704,40 +656,8 @@ const LMS = (() => {
   // ── Init ────────────────────────────────────────────────────
   function init() {
     loadState();
-    _buildHTML();
     _attachEvents();
-  }
-
-  // ── Build HTML into the page ─────────────────────────────────
-  function _buildHTML() {
-    // 1. LMS nav button in header-right (before theme toggle)
-    const headerRight = document.querySelector(".header-right");
-    if (headerRight && !document.getElementById("lms-nav-btn")) {
-      const btn = document.createElement("button");
-      btn.id = "lms-nav-btn";
-      btn.setAttribute("aria-label", "Learning Management System");
-      btn.title = "Learning Management System (Ctrl+L)";
-      btn.innerHTML = `
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
-          <path d="M6 12v5c3 3 9 3 12 0v-5"/>
-        </svg>
-        <span class="lms-btn-text">LMS</span>
-      `;
-      headerRight.insertBefore(btn, headerRight.firstChild);
-    }
-
-    // 2. LMS Screen inside #main-content
-    const main = document.getElementById("main-content");
-    if (main && !document.getElementById("lms-screen")) {
-      const screen = document.createElement("div");
-      screen.id = "lms-screen";
-      screen.className = "hidden";
-      screen.innerHTML = _buildLMSScreenHTML();
-      main.appendChild(screen);
-    }
-
-    // 3. Toast
+    // Ensure toast container exists
     if (!document.getElementById("lms-save-toast")) {
       const toast = document.createElement("div");
       toast.id = "lms-save-toast";
@@ -746,155 +666,9 @@ const LMS = (() => {
     }
   }
 
-  function _buildLMSScreenHTML() {
-    return `
-      <!-- Header -->
-      <div class="lms-page-header">
-        <div class="lms-page-header-left">
-          <div class="lms-page-title">
-            <span class="lms-icon">📊</span>
-            Learning Management System
-          </div>
-          <div class="lms-page-subtitle">
-            System Design &amp; AWS Architect Roadmap · 1 topic/day · 6:30–8:00 AM
-          </div>
-        </div>
-        <div class="lms-header-actions">
-          <button class="lms-reset-btn" id="lms-reset-btn" title="Reset all progress">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-              <polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-4.95"/>
-            </svg>
-            Reset
-          </button>
-          <button class="lms-back-btn" id="lms-back-btn">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-              <polyline points="15 18 9 12 15 6"/>
-            </svg>
-            Back to Learning
-          </button>
-        </div>
-      </div>
-
-      <!-- Start Date Config -->
-      <div class="lms-config-bar">
-        <label for="lms-start-date">📅 Study Start Date:</label>
-        <input type="date" id="lms-start-date" />
-        <span class="lms-config-info" id="lms-config-info"></span>
-      </div>
-
-      <!-- Dashboard Cards -->
-      <div class="lms-dashboard-grid" id="lms-dashboard-grid"></div>
-
-      <!-- Streaks -->
-      <div class="lms-streak-row">
-        <div class="lms-streak-card">
-          <div class="lms-streak-icon">🔥</div>
-          <div class="lms-streak-info">
-            <div class="lms-streak-value" id="lms-streak-val">0</div>
-            <div class="lms-streak-label">Current Streak (days)</div>
-          </div>
-        </div>
-        <div class="lms-streak-card">
-          <div class="lms-streak-icon">🏆</div>
-          <div class="lms-streak-info">
-            <div class="lms-streak-value" id="lms-best-streak-val">0</div>
-            <div class="lms-streak-label">Best Streak (days)</div>
-          </div>
-        </div>
-        <div class="lms-streak-card">
-          <div class="lms-streak-icon">⏰</div>
-          <div class="lms-streak-info">
-            <div class="lms-streak-value">1.5 hrs</div>
-            <div class="lms-streak-label">Daily Study Time</div>
-          </div>
-        </div>
-        <div class="lms-streak-card">
-          <div class="lms-streak-icon">📅</div>
-          <div class="lms-streak-info">
-            <div class="lms-streak-value">6:30 AM</div>
-            <div class="lms-streak-label">Study Schedule</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Overall Progress -->
-      <div class="lms-progress-section">
-        <div class="lms-progress-header">
-          <div class="lms-progress-title">Overall Roadmap Progress</div>
-          <div class="lms-progress-pct" id="lms-main-pct">0%</div>
-        </div>
-        <div class="lms-progress-track">
-          <div class="lms-progress-fill" id="lms-main-fill" style="width:0%"></div>
-        </div>
-        <div class="lms-progress-sub" id="lms-progress-sub"></div>
-        <div class="lms-subject-bars" id="lms-subject-bars"></div>
-      </div>
-
-      <!-- Study Heatmap -->
-      <div class="lms-heatmap-section">
-        <div class="lms-section-title">📅 Study Heatmap — Last 16 Weeks</div>
-        <div class="lms-heatmap-scroll">
-          <div class="lms-heatmap-body">
-            <div class="lms-heatmap-months" id="lms-heatmap-months"></div>
-            <div style="display:flex;gap:3px;" id="lms-heatmap-weeks"></div>
-          </div>
-        </div>
-        <div class="lms-heatmap-legend">
-          <span>Less</span>
-          <div class="lms-heatmap-legend-cell" style="background:var(--bg-elevated);border:1px solid var(--border)"></div>
-          <div class="lms-heatmap-legend-cell" data-count="1"></div>
-          <span>More</span>
-          &nbsp;·&nbsp;
-          <div class="lms-heatmap-legend-cell" style="background:transparent;border:1px dashed var(--border-muted)"></div>
-          <span>Future / out of range</span>
-        </div>
-      </div>
-
-      <!-- Daily Planner -->
-      <div class="lms-planner-section">
-        <div class="lms-section-title">📋 Daily Study Planner</div>
-        <div class="lms-planner-toolbar">
-          <div class="lms-filter-group">
-            <label for="lms-filter-status">Filter:</label>
-            <select class="lms-select-sm" id="lms-filter-status">
-              <option value="all">All Days</option>
-              <option value="not-started">Not Started</option>
-              <option value="learning">Learning</option>
-              <option value="completed">Completed</option>
-            </select>
-          </div>
-          <button class="lms-jump-today-btn" id="lms-jump-today">⬇ Jump to Today</button>
-        </div>
-        <div class="lms-table-wrap">
-          <table class="lms-planner-table">
-            <thead>
-              <tr>
-                <th>Day / Date</th>
-                <th>🌅 Topic<br><small style="font-weight:400;letter-spacing:0;text-transform:none;color:var(--text-muted)">6:30–8:00 AM</small></th>
-                <th>Progress</th>
-                <th>Notes</th>
-              </tr>
-            </thead>
-            <tbody id="lms-planner-tbody"></tbody>
-          </table>
-        </div>
-      </div>
-    `;
-  }
-
   // ── Attach Events ────────────────────────────────────────────
   function _attachEvents() {
     document.addEventListener("click", (e) => {
-      // LMS nav button
-      if (e.target.closest("#lms-nav-btn")) {
-        showLMS();
-        return;
-      }
-      // Back button
-      if (e.target.closest("#lms-back-btn")) {
-        hideLMS();
-        return;
-      }
       // Jump to today
       if (e.target.closest("#lms-jump-today")) {
         const tr = document.querySelector("#lms-planner-tbody .row-today");
@@ -936,8 +710,42 @@ const LMS = (() => {
     window.addEventListener("beforeunload", _silentSave);
   }
 
-  // ── Public ───────────────────────────────────────────────────
-  return { init, showLMS, hideLMS };
+  // ── Public API ───────────────────────────────────────────────
+  function getTodayTopic() {
+    const today = todayStr();
+    const start = state.startDate;
+    const msPerDay = 86400000;
+    const dayOffset = Math.floor(
+      (new Date(today + "T00:00:00") - new Date(start + "T00:00:00")) /
+        msPerDay,
+    );
+    if (dayOffset < 0 || dayOffset >= TOTAL_DAYS) return null;
+    const p = state.plans[dayOffset];
+    if (!p) return null;
+    const topic = LMS_TOPICS[p.morningTopicId];
+    return topic
+      ? { ...topic, status: p.morningStatus, day: dayOffset + 1, date: today }
+      : null;
+  }
+
+  function getStartDate() {
+    return state ? state.startDate : "2026-03-04";
+  }
+  function getPlans() {
+    return state ? state.plans : [];
+  }
+
+  return {
+    init,
+    renderDashboard,
+    renderPlanner,
+    renderHeatmap,
+    getStats,
+    getTodayTopic,
+    getStartDate,
+    getPlans,
+    _syncStartDate,
+  };
 })();
 
 // Auto-init when DOM is ready
