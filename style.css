@@ -330,7 +330,7 @@ body {
   top: 56px;
   left: 0;
   bottom: 0;
-  width: 280px;
+  width: 300px;
   background: var(--sidebar-bg);
   border-right: 1px solid var(--border);
   overflow: hidden;
@@ -344,6 +344,7 @@ body {
 
 #sidebar-inner {
   flex: 1;
+  min-height: 0;
   overflow-y: auto;
   overflow-x: hidden;
   padding: 12px 0 40px;
@@ -356,7 +357,7 @@ body {
 
 .subject-header {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 10px;
   padding: 10px 16px;
   cursor: pointer;
@@ -384,14 +385,15 @@ body {
 .subject-title {
   flex: 1;
   min-width: 0;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  white-space: normal;
+  word-break: break-word;
+  line-height: 1.35;
 }
 .subject-chevron {
   flex-shrink: 0;
   width: 16px;
   height: 16px;
+  margin-top: 1px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -560,7 +562,7 @@ body {
 /* ── Main Content Area ────────────────────────────────────── */
 #main-content {
   flex: 1;
-  margin-left: 280px;
+  margin-left: 300px;
   margin-right: 260px;
   min-height: calc(100vh - 56px);
   position: relative;
@@ -1440,6 +1442,21 @@ body.sidebar-collapsed #toc-sidebar {
 }
 [data-icon="architecture"]::before {
   content: "🏗️ ";
+}
+[data-icon="scalability"]::before {
+  content: "📈 ";
+}
+[data-icon="cloud"]::before {
+  content: "☁️ ";
+}
+[data-icon="aws"]::before {
+  content: "🔶 ";
+}
+[data-icon="containers"]::before {
+  content: "🐳 ";
+}
+[data-icon="production"]::before {
+  content: "🏭 ";
 }
 
 /* ── Syntax highlight override (Prism) ────────────────────── */

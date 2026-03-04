@@ -241,6 +241,11 @@ function _buildWelcomeCards() {
     security: "🔐",
     database: "🗄️",
     architecture: "🏗️",
+    scalability: "📈",
+    cloud: "☁️",
+    aws: "🔶",
+    containers: "🐳",
+    production: "🏭",
   };
 
   App.curriculum.subjects.forEach((subj) => {
