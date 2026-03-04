@@ -699,6 +699,13 @@ function _wireUI() {
     $("primary-nav-overlay")?.classList.remove("open");
   });
 
+  // Hard refresh button
+  $("hard-refresh-btn")?.addEventListener("click", () => {
+    const btn = $("hard-refresh-btn");
+    btn?.classList.add("spinning");
+    setTimeout(() => window.location.reload(true), 400);
+  });
+
   // Today hero → open planner
   $("today-open-planner")?.addEventListener("click", () => Nav.show("planner"));
 

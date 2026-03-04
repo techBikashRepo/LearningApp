@@ -342,6 +342,20 @@ body {
   color: var(--text-primary);
 }
 
+/* Hard refresh button — spin on click */
+@keyframes spin-once {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+#hard-refresh-btn:active svg,
+#hard-refresh-btn.spinning svg {
+  animation: spin-once 0.45s linear;
+}
+
 /* Hamburger */
 #sidebar-toggle {
   flex-direction: column;
