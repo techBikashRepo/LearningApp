@@ -743,6 +743,115 @@ body.sidebar-collapsed #panel-roadmap #sidebar {
   font-size: 0.82rem;
 }
 
+/* ── Reference Materials Card ───────────────────────────────── */
+.ref-materials-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 22px 24px;
+  margin-top: 24px;
+}
+
+.ref-materials-header {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--text-secondary);
+  margin-bottom: 16px;
+}
+.ref-materials-header svg {
+  flex-shrink: 0;
+  color: var(--accent);
+}
+
+.ref-materials-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ref-pdf-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  text-decoration: none;
+  color: var(--text-primary);
+  transition:
+    border-color var(--transition),
+    box-shadow var(--transition),
+    background var(--transition),
+    transform var(--transition);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.ref-pdf-item:hover {
+  border-color: var(--accent-border);
+  box-shadow: var(--shadow-sm);
+  background: var(--accent-glow);
+  transform: translateY(-1px);
+}
+.ref-pdf-item:active {
+  transform: translateY(0);
+}
+
+.ref-pdf-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  flex-shrink: 0;
+}
+.ref-pdf-icon svg {
+  color: #ef4444;
+}
+
+.ref-pdf-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+  min-width: 0;
+}
+.ref-pdf-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.ref-pdf-meta {
+  font-size: 0.73rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.ref-pdf-arrow {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  color: var(--text-muted);
+  transition:
+    color var(--transition),
+    transform var(--transition);
+}
+.ref-pdf-item:hover .ref-pdf-arrow {
+  color: var(--accent);
+  transform: translate(2px, -2px);
+}
+
 /* ── Analytics Panel ────────────────────────────────────────── */
 .analytics-grid {
   display: grid;
@@ -1140,6 +1249,23 @@ a.site-logo {
   .sd-card-btn {
     width: 100%;
     justify-content: center;
+  }
+  /* Reference materials: compact */
+  .ref-materials-card {
+    padding: 16px 14px;
+    margin-top: 16px;
+  }
+  .ref-pdf-item {
+    padding: 12px 12px;
+    gap: 10px;
+  }
+  .ref-pdf-icon {
+    width: 34px;
+    height: 34px;
+  }
+  .ref-pdf-title {
+    font-size: 0.84rem;
+    white-space: normal; /* allow wrap on very narrow screens */
   }
 }
 
